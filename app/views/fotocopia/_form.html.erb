@@ -1,0 +1,37 @@
+<%= form_for(@fotocopium) do |f| %>
+  <% if @fotocopium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fotocopium.errors.count, "error") %> prohibited this fotocopium from being saved:</h2>
+
+      <ul>
+      <% @fotocopium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titulo %><br>
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :originais %><br>
+    <%= f.number_field :originais %>
+  </div>
+  <div class="field">
+    <%= f.label :quantidade %><br>
+    <%= f.number_field :quantidade %>
+  </div>
+  <div class="field">
+    <%= f.label :data %><br>
+    <%= f.date_select :data %>
+  </div>
+  <div class="field">
+    <%= f.label :justificativa %><br>
+    <%= f.text_area :justificativa %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

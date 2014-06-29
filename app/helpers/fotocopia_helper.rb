@@ -1,0 +1,2 @@
+module FotocopiaHelper
+end
