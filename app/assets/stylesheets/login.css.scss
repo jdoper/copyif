@@ -1,0 +1,30 @@
+// Place all the styles related to the Login controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/ul
+h1{
+	padding:20px;
+}
+ul{
+	float: left;
+}
+ul li{
+	list-style-type: none;
+	padding-left:20px;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+ul li a{
+	background-color: #9c9;
+	color: #333;
+	text-decoration: none;
+	border: 1px solid #808080;
+	width: 150px;
+	height: 20px;
+	display: block;
+	text-align: center;
+}
+ul li a:hover{
+	background-color:#D6D6D6;
+	color: #6D6D6D;
+	display: block;
+}

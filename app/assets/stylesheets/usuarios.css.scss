@@ -1,3 +1,45 @@
 // Place all the styles related to the Usuarios controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.usuarios {
+	h1{
+		color: black;
+		padding-bottom: 0.5em;
+		border-bottom: 2px solid black;
+	}
+	table {
+		border-collapse: collapse;
+		margin: 15px 15px;
+	}
+	table tr td {
+		padding: 5px;
+		vertical-align: top;
+	}
+}
+p{
+	padding-left:20px;
+}
+p #inicio{
+	margin-left:50px;
+}
+p a #inicio{
+	margin-left:50px;
+	width: 150px;
+}
+p a {
+	background-color: #9c9;
+	color: #333;
+	text-decoration: none;
+	border: 1px solid #808080;
+	width: 90px;
+	height: 20px;
+	display: block;
+	text-align: center;
+	float: left;
+	margin-top: -20px;
+}
+p a:hover {
+	background-color:#D6D6D6;
+	color: #6D6D6D;
+	display: block;
+}
