@@ -13,16 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140629201502) do
 
-  create_table "copia", force: true do |t|
-    t.string   "titulo"
-    t.integer  "numeroOriginais"
-    t.integer  "quantidade"
-    t.date     "data"
-    t.text     "justificativa"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "fotocopia", force: true do |t|
     t.string   "titulo"
     t.integer  "originais"
