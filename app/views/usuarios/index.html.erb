@@ -1,12 +1,12 @@
-<h1>Listing usuarios</h1>
+<h1>Usuários</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Nome</th>
-      <th>Matricula</th>
-      <th>Diretoria</th>
-      <th>Senha</th>
+      <th class="user_info">Nome</th>
+      <th class="user_info">Matricula</th>
+      <th class="user_info">Diretoria</th>
+      <th class="user_info">Senha</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,13 +14,14 @@
   <tbody>
     <% @usuarios.each do |usuario| %>
       <tr>
-        <td><%= usuario.nome %></td>
-        <td><%= usuario.matricula %></td>
-        <td><%= usuario.diretoria %></td>
-        <td><%= usuario.senha %></td>
-        <td><%= link_to 'Show', usuario %></td>
-        <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
-        <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="user_info"><%= usuario.nome %></td>
+        <td class="user_info"><%= usuario.matricula %></td>
+        <td class="user_info"><%= usuario.diretoria %></td>
+        <td class="user_info"><%= usuario.senha %></td>
+        <td class="buttom_actions"><%= link_to 'Show', usuario %></td>
+        <td class="buttom_actions"><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
+        <td class="buttom_actions"><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="buttom_actions"><%= link_to 'Login', controller:"servico", action:"index", id:usuario.id %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,5 +29,5 @@
 
 <br>
 
-<p><%= link_to 'New User', new_usuario_path %></p>
-<p id="inicio"><a href="http://localhost:3000">Inicio</a></p>
+<p><%= link_to 'Criar conta', new_usuario_path %></p>
+<p><%= link_to 'Inicio', controller:"login", action:"index" %></p>

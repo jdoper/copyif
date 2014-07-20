@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140629201502) do
+ActiveRecord::Schema.define(version: 20140712150415) do
 
   create_table "fotocopia", force: true do |t|
     t.string   "titulo"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20140629201502) do
     t.text     "justificativa"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "id_usuario"
+    t.integer  "matricula"
   end
 
   create_table "usuarios", force: true do |t|
@@ -30,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140629201502) do
     t.string   "senha"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "id_usuario"
   end
 
 end

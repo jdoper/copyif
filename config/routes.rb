@@ -1,16 +1,31 @@
 Rails.application.routes.draw do
+  get 'servico/edit'
+
+  get 'servico/delete'
+
+  get 'servico/index'
+
+  get 'servico/order'
+
   get 'login/index'
+
+  get 'usuarios/log'
 
   resources :fotocopia
 
   resources :usuarios
 
+  resources :servico
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'login#index', as: 'login'
 
+  root 'login#index', as: 'login'
+  #root 'servico#index', as: 'servico'
+
+ #root 'servico#index', as: 'servico'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

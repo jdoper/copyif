@@ -9,7 +9,10 @@
 <body class="<%= controller.controller_name %>">
 	<div id="corpo">
 		<div id="banner">
-			<%= @page_title || "CopyIF" %>
+      <!--
+      <%= @page_title || "CopyIF" %>
+      -->
+      <%= image_tag("logo_cif.jpg") %>
 		</div>
 		<div id="main">
 			<%= yield %>

@@ -1,15 +1,21 @@
 class UsuariosController < ApplicationController
-  before_action :set_usuario, only: [:show, :edit, :update, :destroy]
+  before_action :set_usuario, only: [:show, :edit, :update, :destroy, :login]
 
   # GET /usuarios
   # GET /usuarios.json
+
+
   def index
     @usuarios = Usuario.all
   end
 
+  def log
+
+  end
   # GET /usuarios/1
   # GET /usuarios/1.json
   def show
+    $login = @usuario
   end
 
   # GET /usuarios/new
@@ -60,6 +66,7 @@ class UsuariosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

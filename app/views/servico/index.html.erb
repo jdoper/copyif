@@ -1,0 +1,16 @@
+<h1>Bem vindo, <%= $a.nome %></h1>
+
+<!--
+<% @fotocopium.each do |fotocopia| %>
+  <% if fotocopia.matricula == $a.matricula %>
+    <%= fotocopia.titulo %>
+    <%= fotocopia.originais %>
+    <%= fotocopia.quantidade %>
+    <%= fotocopia.data %> </br>
+  <% end %>
+<% end %>
+-->
+<ul>
+  <li><%= link_to 'Copia', controller:"fotocopia", action:"index", id:$a %></li>
+  <li><%= link_to 'Sair', controller:"login", action:"index", id:$a %></li>
+</ul>

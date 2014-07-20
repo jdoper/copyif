@@ -4,8 +4,8 @@ class FotocopiaController < ApplicationController
   # GET /fotocopia
   # GET /fotocopia.json
   def index
-    @fotocopia = Fotocopium.all
-  end
+    @fotocopium = Fotocopium.all
+      end
 
   # GET /fotocopia/1
   # GET /fotocopia/1.json
@@ -69,6 +69,6 @@ class FotocopiaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fotocopium_params
-      params.require(:fotocopium).permit(:titulo, :originais, :quantidade, :data, :justificativa)
+      params.require(:fotocopium).permit(:titulo, :originais, :quantidade, :data, :justificativa, :matricula)
     end
 end

@@ -18,21 +18,29 @@
 	padding: 0;
 }
 body{
-	background-color: gray;
+	background-color: white;
 }
 #corpo{
 	width: 1100px;
+	box-shadow: -5px 0px 15px black, 5px 0px 15px black;
 }
 #banner {
+	/*
 	background: #9c9;
-	padding: 10px;
-	border-bottom: 2px solid;
+	*/
+	background: white;
+	padding: 15px;
+	border-bottom: 2px solid #fe0100;
+	/*
 	font: small-caps 40px/40px "Times New Roman", serif;
 	color: #282;
+	*/
 	text-align: center;
+	box-shadow: 0px 15px 15px gray;
 }
 #banner img {
-	float: left;
+	align: center;
+	padding-top: 5px;
 }
 #notice {
 	color: #000 !important;
@@ -47,6 +55,6 @@ body{
 }
 #main {
 	padding: 1em;
-	background: white;
+	background: #f1f1f1;
 	height: 800px;
 }
