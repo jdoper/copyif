@@ -21,13 +21,21 @@
         <td class="buttom_actions"><%= link_to 'Show', usuario %></td>
         <td class="buttom_actions"><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
         <td class="buttom_actions"><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td class="buttom_actions"><%= link_to 'Login', controller:"servico", action:"index", id:usuario.id %></td>
+        <td class="buttom_actions"><%= link_to 'Login', controller:"servico", action:"index", matricula:usuario.matricula %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 
+<table class="buttom_opt">
+  <tr>
+    <td class="user_opt"><%= link_to 'Criar conta', new_usuario_path %></td>
+    <td class="user_opt"><%= link_to 'Inicio', controller:"login", action:"index" %></td>
+  </tr>
+</table>
+
+<!--
 <p><%= link_to 'Criar conta', new_usuario_path %></p>
 <p><%= link_to 'Inicio', controller:"login", action:"index" %></p>
+-->
