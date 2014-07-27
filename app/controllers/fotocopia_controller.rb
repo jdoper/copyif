@@ -5,16 +5,23 @@ class FotocopiaController < ApplicationController
   # GET /fotocopia.json
   def index
     @fotocopium = Fotocopium.all
+      if(params[:matricula].size > 6)
+      @a = Usuario.find_by_matricula(params[:matricula])
+      else
+      @a = Diretor.find_by_matricula(params[:matricula])
       end
-
+        end
+   
   # GET /fotocopia/1
   # GET /fotocopia/1.json
   def show
+    
   end
 
   # GET /fotocopia/new
   def new
     @fotocopium = Fotocopium.new
+
   end
 
   # GET /fotocopia/1/edit
@@ -26,12 +33,14 @@ class FotocopiaController < ApplicationController
   def create
     @fotocopium = Fotocopium.new(fotocopium_params)
 
+
     respond_to do |format|
       if @fotocopium.save
         format.html { redirect_to @fotocopium, notice: 'Fotocopium was successfully created.' }
         format.json { render :show, status: :created, location: @fotocopium }
       else
         format.html { render :new }
+        @fotocopium.matricula = @a.matricula
         format.json { render json: @fotocopium.errors, status: :unprocessable_entity }
       end
     end

@@ -5,6 +5,7 @@ class DiretorsController < ApplicationController
   # GET /diretors.json
   def index
     @diretors = Diretor.all
+
   end
 
   # GET /diretors/1

@@ -1,4 +1,5 @@
-<h1>Listing fotocopia</h1>
+<h1>Listing fotocopium</h1>
+
 
 <table>
   <thead>
@@ -16,21 +17,7 @@
   <tbody>
     <% @fotocopium.each do |fotocopium| %>
 
-<!--      <% if @teste.size < 7 %>
-        <tr>
-          <td class="user_info"><%= fotocopium.titulo %></td>
-          <td class="user_info"><%= fotocopium.originais %></td>
-          <td class="user_info"><%= fotocopium.quantidade %></td>
-          <td class="user_info"><%= fotocopium.data %></td>
-          <td class="user_info"><%= fotocopium.justificativa %></td>
-          <td class="user_info"><%= fotocopium.matricula %></td>
-          <td class="buttom_actions"><%= link_to 'Show', fotocopium %></td>
-          <td class="buttom_actions"><%= link_to 'Edit', edit_fotocopium_path(fotocopium) %></td>
-          <td class="buttom_actions"><%= link_to 'Destroy', fotocopium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-
-      <% else %>-->
-        <% if fotocopium.matricula == @a.matricula %>
+      <%if(fotocopium.matricula == @a.matricula) %>
           <tr>
             <td class="user_info"><%= fotocopium.titulo %></td>
             <td class="user_info"><%= fotocopium.originais %></td>
@@ -42,25 +29,19 @@
             <td class="buttom_actions"><%= link_to 'Edit', edit_fotocopium_path(fotocopium) %></td>
             <td class="buttom_actions"><%= link_to 'Destroy', fotocopium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
-        <% end %>
+ <%end %>
 
-      <!-- <% end %> -->
 
     <% end %>
   </tbody>
 </table>
 <br>
 
-<!--
-<p><%= link_to 'New', new_fotocopium_path %></p>
-<p id="Sair"><%= link_to 'Voltar', controller:"servico", action:"index", id:$a %></li></p>
-<p id="Sair"><%= link_to 'Sair', controller:"login", action:"index" %></p>
--->
 
 <table class="buttom_opt">
   <tr>
-    <td class="user_opt"><%= link_to 'New', new_fotocopium_path %></td>
-    <td class="user_opt"><%= link_to 'Voltar', controller:"servico", action:"index", id:$a %></td>
+    <td class="user_opt"><%= link_to 'New', controller:"fotocopia", action:"new", matricula:  @a.matricula %></td>
+    <td class="user_opt"><%= link_to 'Voltar', controller:"servico", action:"index", id:@a %></td>
     <td class="user_opt"><%= link_to 'Sair', controller:"login", action:"index" %></td>
   </tr>
 </table>

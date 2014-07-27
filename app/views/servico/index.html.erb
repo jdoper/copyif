@@ -1,11 +1,11 @@
-<h1>Bem vindo, <%= @a.nome %> </h1>
+<h1>Bem vindo, <%=@a.nome %> </h1>
 
 <ul>
-  <li><%= link_to 'Copia', controller:"fotocopia", action:"index", id:@a %></li>
+  <li><%= link_to 'Copia', controller:"fotocopia", action:"index", matricula:@a.matricula %></li>
   <%= @teste.size %>
   <%= @a.matricula %>
   <% if @teste.size == 6 %>
 	 <li><%= link_to 'Histórico de Usuários', controller:"fotocopia", action:"index", id:@a %></li>
-  <% end %>
+  <% end %> -->
   <li><%= link_to 'Sair', controller:"login", action:"index", id:@a %></li>
 </ul>
