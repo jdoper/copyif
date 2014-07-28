@@ -6,9 +6,10 @@
 <% end %>
 
 <ul>
-  <li><%= link_to 'Copia', controller:"fotocopia", action:"index", id: $a %></li>
+  <li><%= link_to 'Nova Copia', controller:"fotocopia", action:"new", id: $a %></li>
+  <li><%= link_to 'Histórico de Copias', controller:"fotocopia", action:"index", id:$a, id_copies:"1" %></li>
   <% if $a.tipo == "diretor" %>
-	 <li><%= link_to 'Histórico de Usuários', controller:"fotocopia", action:"index", id:$a %></li>
+	 <li><%= link_to 'Histórico de Usuários', controller:"fotocopia", action:"index", id:$a, id_copies:"2" %></li>
   <% end %>
   <li><%= link_to 'Sair', controller:"login", action:"index" %></li>
 </ul>

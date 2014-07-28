@@ -4,7 +4,16 @@ class FotocopiaController < ApplicationController
   # GET /fotocopia
   # GET /fotocopia.json
   def index
-    @fotocopium = Fotocopium.all
+    if $a.tipo == "professor" || params[:id_copies] == "1" 
+      @fotocopium = Fotocopium.where("matricula = #{$a.matricula}")
+    else
+      @fotocopium = Fotocopium.all
+    end
+
+
+    #@fotocopium = Fotocopium.all
+    #Client.where("orders_count = ?", params[:orders])
+      
 
       #if(params[:matricula].size > 6)
       #@a = Usuario.find_by_matricula(params[:matricula])

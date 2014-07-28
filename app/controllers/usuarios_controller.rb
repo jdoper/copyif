@@ -7,13 +7,12 @@ class UsuariosController < ApplicationController
 
   def index
     @usuarios = Usuario.all
-    $id = params[:id]
 
-    #if params[:id] == 1
-    #  $id = "professor"
-    #elsif params[:id] == 2
-    #  $id = "diretor"
-    #end
+    if params[:id] == "1"
+      $id = "professor"
+    else
+      $id = "diretor"
+    end
 
   end
 
