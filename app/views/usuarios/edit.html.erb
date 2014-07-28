@@ -2,5 +2,9 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @usuario %> |
-<%= link_to 'Back', usuarios_path %>
+<table class="buttom_opt">
+  <tr>
+    <td class="user_opt"><%= link_to 'Show', @usuario %></td>
+    <td class="user_opt"><%= link_to 'Back', controller:"usuarios", action:"index", id:$id %></td>
+  </tr>
+</table>

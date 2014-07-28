@@ -5,12 +5,13 @@ class FotocopiaController < ApplicationController
   # GET /fotocopia.json
   def index
     @fotocopium = Fotocopium.all
-      if(params[:matricula].size > 6)
-      @a = Usuario.find_by_matricula(params[:matricula])
-      else
-      @a = Diretor.find_by_matricula(params[:matricula])
-      end
-        end
+
+      #if(params[:matricula].size > 6)
+      #@a = Usuario.find_by_matricula(params[:matricula])
+      #else
+      #@a = Diretor.find_by_matricula(params[:matricula])
+      #end
+  end
    
   # GET /fotocopia/1
   # GET /fotocopia/1.json

@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+
   <div class="field">
     <%= f.label :titulo %><br>
     <%= f.text_field :titulo %>
@@ -30,9 +31,10 @@
     <%= f.label :justificativa %><br>
     <%= f.text_area :justificativa %>
   </div>
+
   <div class="field">
     <%= f.label :matricula %><br>
-    <%= f.number_field :matricula, :value => params[:matricula], :readonly => true %>
+    <%= f.number_field :matricula, :value => $a.matricula, :readonly => true %>
   </div>
 
   <div class="actions">

@@ -7,6 +7,14 @@ class UsuariosController < ApplicationController
 
   def index
     @usuarios = Usuario.all
+    $id = params[:id]
+
+    #if params[:id] == 1
+    #  $id = "professor"
+    #elsif params[:id] == 2
+    #  $id = "diretor"
+    #end
+
   end
 
   def log
@@ -76,6 +84,6 @@ class UsuariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def usuario_params
-      params.require(:usuario).permit(:nome, :matricula, :diretoria, :senha)
+      params.require(:usuario).permit(:nome, :matricula, :diretoria, :senha, :tipo)
     end
 end

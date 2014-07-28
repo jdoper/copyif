@@ -1,11 +1,14 @@
-<h1>Bem vindo, <%=@a.nome %> </h1>
+<h1>Bem vindo, <%= $a.nome %> </h1>
+<% if $a.tipo == "diretor" %>
+	<h2> Diretor da <%= $a.diretoria %></h2>
+<% else %>
+	<h2> Professor da <%= $a.diretoria %></h2>
+<% end %>
 
 <ul>
-  <li><%= link_to 'Copia', controller:"fotocopia", action:"index", matricula:@a.matricula %></li>
-  <%= @teste.size %>
-  <%= @a.matricula %>
-  <% if @teste.size == 6 %>
-	 <li><%= link_to 'Histórico de Usuários', controller:"fotocopia", action:"index", id:@a %></li>
-  <% end %> -->
-  <li><%= link_to 'Sair', controller:"login", action:"index", id:@a %></li>
+  <li><%= link_to 'Copia', controller:"fotocopia", action:"index", id: $a %></li>
+  <% if $a.tipo == "diretor" %>
+	 <li><%= link_to 'Histórico de Usuários', controller:"fotocopia", action:"index", id:$a %></li>
+  <% end %>
+  <li><%= link_to 'Sair', controller:"login", action:"index" %></li>
 </ul>

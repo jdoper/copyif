@@ -30,5 +30,9 @@
   <%= @fotocopium.matricula %>
 </p>
 
-<%= link_to 'Edit', edit_fotocopium_path(@fotocopium) %> |
-<%= link_to 'Back', fotocopia_path %>
+<table class="buttom_opt">
+  <tr>
+    <td class="user_opt"><%= link_to 'Edit', edit_fotocopium_path(@fotocopium) %></td>
+    <td class="user_opt"><%= link_to 'Back', fotocopia_path %></td>
+  </tr>
+</table>
