@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   resources :diretors
 
   get 'servico/edit'
@@ -9,11 +11,12 @@ Rails.application.routes.draw do
 
   get 'servico/order'
 
-  get 'login/index'
-
   get 'usuarios/log'
 
   get 'usuarios/listaUsuarios'
+
+  post '/autenticar', to: 'login#create'
+  get '/sair', to: 'login#destroy'
 
   resources :fotocopia
 
@@ -26,7 +29,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
 
-  root 'login#index', as: 'login'
+  root :to => 'login#index'
   #root 'servico#index', as: 'servico'
 
  #root 'servico#index', as: 'servico'

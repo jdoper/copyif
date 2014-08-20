@@ -1,6 +1,20 @@
 <h1>Bem vindo ao CopyIF</h1>
 <h3>Realize suas solicitações de forma rápida e prática</h3>
+
+<%= form_tag autenticar_path do %>
+    <div>
+      <%= label_tag 'matricula', 'Matricula' %><br>
+      <%= text_field_tag 'matricula' %>
+    </div>
+    <div>
+      <%= label_tag 'senha', 'Senha' %><br>
+      <%= password_field_tag 'senha' %>
+    </div>
+    <%= submit_tag 'Login' %>
+<% end %>
+
 <ul>
-	<li><%= link_to 'Professores', controller:"usuarios", action:"index", id:"1" %></li>
-	<li><%= link_to 'Diretores', controller:"usuarios", action:"index", id:"2" %></li>
+  <li><%= link_to 'Professores', controller:"usuarios", action:"index", id:"1" %></li>
+  <li><%= link_to 'Diretores', controller:"usuarios", action:"index", id:"2" %></li>
 </ul>
+
