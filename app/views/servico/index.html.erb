@@ -4,6 +4,7 @@
 <% else %>
 	<h2> Professor da <%= $a.diretoria %></h2>
 <% end %>
+<h1>ID: <% session[:user_id] %></h1>
 
 <ul>
   <li><%= link_to 'Nova Copia', controller:"fotocopia", action:"new", id: $a %></li>
