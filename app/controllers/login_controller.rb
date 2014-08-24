@@ -9,7 +9,6 @@ class LoginController < ApplicationController
   	usuario = Usuario.find_by matricula: params[:matricula], senha: params[:senha]
   	if usuario
       session[:user_id] = usuario.id
-      $globalTeste = usuario
       redirect_to controller:"servico", action:"index", notice: 'Usuario autenticado.'
   	else
       redirect_to root_url

@@ -24,13 +24,9 @@
           <td class="user_info"><%= fotocopium.justificativa %></td>
           <td class="user_info"><%= fotocopium.matricula %></td>
           <td class="buttom_actions"><%= link_to 'Show', fotocopium %></td>
-          
-          <% if params[:id_copies] != "2" %>
-            <td class="buttom_actions"><%= link_to 'Edit', edit_fotocopium_path(fotocopium) %></td>
-            <td class="buttom_actions"><%= link_to 'Destroy', fotocopium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-          <% end %>
-
+          <td class="buttom_actions"><%= link_to 'Edit', edit_fotocopium_path(fotocopium) %></td>
+          <td class="buttom_actions"><%= link_to 'Destroy', fotocopium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
     <% end %>
   </tbody>
 </table>
@@ -39,8 +35,8 @@
 
 <table class="buttom_opt">
   <tr>
-    <td class="user_opt"><%= link_to 'New', controller:"fotocopia", action:"new", id: $a %></td>
-    <td class="user_opt"><%= link_to 'Voltar', controller:"servico", action:"index", id:$a %></td>
+    <td class="user_opt"><%= link_to 'New', controller:"fotocopia", action:"new" %></td>
+    <td class="user_opt"><%= link_to 'Voltar', controller:"servico", action:"index" %></td>
     <td class="user_opt"><%= link_to 'Sair', controller:"login", action:"index" %></td>
   </tr>
 </table>

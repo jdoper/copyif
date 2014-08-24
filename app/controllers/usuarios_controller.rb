@@ -16,16 +16,17 @@ class UsuariosController < ApplicationController
 
   end
 
-def listaUsuarios
-  @usuarios = Usuario.where("diretoria = '#{$a.diretoria}'")
+  def listaUsuarios
+    @usuarios = Usuario.where("diretoria = '#{$a.diretoria}'")
 
-  if params[:id] == "1"
-    $id = "professor"
-  else
-    $id = "diretor"
+    if params[:id] == "1"
+      $id = "professor"
+    else
+      $id = "diretor"
+    end
+
   end
-
-end
+  
   def log
 
   end

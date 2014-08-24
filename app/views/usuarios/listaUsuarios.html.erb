@@ -18,8 +18,6 @@
 
   <tbody>
     <% @usuarios.each do |usuario| %>
-
-      <% if $id == usuario.tipo %>
       <tr>
         <td class="user_info"><%= usuario.nome %></td>
         <td class="user_info"><%= usuario.matricula %></td>
@@ -31,8 +29,6 @@
         <td class="buttom_actions"><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td class="buttom_actions"><%= link_to 'Login', controller:"servico", action:"index", id:usuario.id %></td>
       </tr>
-      <% end %>
-
     <% end %>
   </tbody>
 </table>
@@ -40,7 +36,8 @@
 
 <table class="buttom_opt">
   <tr>
-    <td class="user_opt"><%= link_to 'Criar conta', new_usuario_path, id:$id %></td>
+    <td class="user_opt"><%= link_to 'Criar conta', new_usuario_path %></td>
+    <td class="user_opt"><%= link_to 'Voltar', controller:"servico", action:"index" %></td>
     <td class="user_opt"><%= link_to 'Inicio', controller:"login", action:"index" %></td>
   </tr>
 </table>

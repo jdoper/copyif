@@ -1,38 +1,40 @@
-<p id="notice"><%= notice %></p>
+<center>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Titulo:</strong>
-  <%= @fotocopium.titulo %>
-</p>
+  <p>
+    <strong>Titulo:</strong>
+    <%= @fotocopium.titulo %>
+  </p>
 
-<p>
-  <strong>Originais:</strong>
-  <%= @fotocopium.originais %>
-</p>
+  <p>
+    <strong>Originais:</strong>
+    <%= @fotocopium.originais %>
+  </p>
 
-<p>
-  <strong>Quantidade:</strong>
-  <%= @fotocopium.quantidade %>
-</p>
+  <p>
+    <strong>Quantidade:</strong>
+    <%= @fotocopium.quantidade %>
+  </p>
 
-<p>
-  <strong>Data:</strong>
-  <%= @fotocopium.data %>
-</p>
+  <p>
+    <strong>Data:</strong>
+    <%= @fotocopium.data %>
+  </p>
 
-<p>
-  <strong>Justificativa:</strong>
-  <%= @fotocopium.justificativa %>
-</p>
+  <p>
+    <strong>Justificativa:</strong>
+    <%= @fotocopium.justificativa %>
+  </p>
 
-<p>
-  <strong>Matricula:</strong>
-  <%= @fotocopium.matricula %>
-</p>
+  <p>
+    <strong>Matricula:</strong>
+    <%= @fotocopium.matricula %>
+  </p>
 
-<table class="buttom_opt">
-  <tr>
-    <td class="user_opt"><%= link_to 'Edit', edit_fotocopium_path(@fotocopium) %></td>
-    <td class="user_opt"><%= link_to 'Back', fotocopia_path %></td>
-  </tr>
-</table>
+  <table class="buttom_opt">
+    <tr>
+      <td class="user_opt"><%= link_to 'Edit', edit_fotocopium_path(@fotocopium) %></td>
+      <td class="user_opt"><%= link_to 'Back', fotocopia_path %></td>
+    </tr>
+  </table>
+</center>

@@ -1,11 +1,6 @@
 class ServicoController < ApplicationController
   def index
-    #@u = Usuario.all
-    #id:$globalTeste
-    #$a = @u.find(params[:id])
-    $a = $globalTeste
-    session[:usuario_id]
-
+    $a = Usuario.find(session[:user_id])
     @fotocopium = Fotocopium.order(:titulo)
   end
 

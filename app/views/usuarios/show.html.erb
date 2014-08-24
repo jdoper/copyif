@@ -1,33 +1,35 @@
-<h1>Informações do Usuário</h1>
+<center>
+  <h1>Informações do Usuário</h1>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @usuario.nome %>
-</p>
+  <p>
+    <strong>Nome:</strong>
+    <%= @usuario.nome %>
+  </p>
 
-<p>
-  <strong>Matricula:</strong>
-  <%= @usuario.matricula %>
-</p>
+  <p>
+    <strong>Matricula:</strong>
+    <%= @usuario.matricula %>
+  </p>
 
-<p>
-  <strong>Diretoria:</strong>
-  <%= @usuario.diretoria %>
-</p>
+  <p>
+    <strong>Diretoria:</strong>
+    <%= @usuario.diretoria %>
+  </p>
 
-<p>
-  <strong>Senha:</strong>
-  <%=@usuario.senha %>
-</p>
+  <p>
+    <strong>Senha:</strong>
+    <%=@usuario.senha %>
+  </p>
 
-<p>
-  <strong>Tipo:</strong>
-  <%=@usuario.tipo %>
-</p>
+  <p>
+    <strong>Tipo:</strong>
+    <%=@usuario.tipo %>
+  </p>
 
-<table class="buttom_opt">
-  <tr>
-    <td class="user_opt"><%= link_to 'Edit', edit_usuario_path(@usuario) %></td>
-    <td class="user_opt"><%= link_to 'Back', controller:"usuarios", action:"index", id:$id %></td>
-  </tr>
-</table>
+  <table class="buttom_opt">
+    <tr>
+      <td class="user_opt"><%= link_to 'Edit', edit_usuario_path(@usuario) %></td>
+      <td class="user_opt"><%= link_to 'Back', controller:"usuarios", action:"index" %></td>
+    </tr>
+  </table>
+</center>

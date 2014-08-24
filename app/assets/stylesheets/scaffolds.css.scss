@@ -32,7 +32,13 @@ a {
 div {
   &.field, &.actions {
     margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
+  }
+  input {
+    margin-top: 4px;
+    border: 1px solid black;
+    height: 25px;
+    min-width: 60px;
   }
 }
 
