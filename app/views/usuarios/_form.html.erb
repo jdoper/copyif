@@ -21,7 +21,8 @@
   </div>
   <div class="field">
     <%= f.label :diretoria %><br>
-    <%= f.text_field :diretoria %>
+    <%= f.select :diretoria, Usuario::DIRETORIAS,
+    prompt: 'Selecione' %>
   </div>
   <div class="field">
     <%= f.label :senha %><br>
