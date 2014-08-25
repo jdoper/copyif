@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   resources :diretors
 
   get 'servico/edit'
@@ -15,7 +14,10 @@ Rails.application.routes.draw do
 
   get 'usuarios/listaUsuarios'
 
+  get 'fotocopia/concluir'  
+
   post '/autenticar', to: 'login#create'
+  
   get '/sair', to: 'login#destroy'
 
   resources :fotocopia

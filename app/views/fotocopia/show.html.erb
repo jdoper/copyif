@@ -31,6 +31,17 @@
       <%= @fotocopium.matricula %>
     </p>
 
+    <p>
+      <strong>Pronto:</strong>
+      <% if @fotocopium.check == 0 %>
+        Não
+      <% elsif @fotocopium.check == 1 %>
+        Sim
+      <% else %>
+        -
+      <% end %>
+    </p>
+
     <table class="buttom_opt">
       <tr>
         <td class="user_opt"><%= link_to 'Edit', edit_fotocopium_path(@fotocopium) %></td>

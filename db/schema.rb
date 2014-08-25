@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728001810) do
+ActiveRecord::Schema.define(version: 20140825172536) do
 
   create_table "diretors", force: true do |t|
     t.string   "nome"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140728001810) do
     t.datetime "updated_at"
     t.integer  "id_usuario"
     t.integer  "matricula"
+    t.integer  "check"
   end
 
   create_table "usuarios", force: true do |t|

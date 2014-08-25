@@ -33,7 +33,6 @@ class FotocopiaController < ApplicationController
   def create
     @fotocopium = Fotocopium.new(fotocopium_params)
 
-
     respond_to do |format|
       if @fotocopium.save
         format.html { redirect_to @fotocopium, notice: 'Fotocopium was successfully created.' }
@@ -70,6 +69,15 @@ class FotocopiaController < ApplicationController
     end
   end
 
+  def concluir
+    @fotocopium = Fotocopium.find(params[:id])
+    @fotocopium.check = 0
+    
+    if @fotocopium.save
+      render json: @fotocopium
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_fotocopium
@@ -78,6 +86,6 @@ class FotocopiaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fotocopium_params
-      params.require(:fotocopium).permit(:titulo, :originais, :quantidade, :data, :justificativa, :matricula)
+      params.require(:fotocopium).permit(:titulo, :originais, :quantidade, :data, :justificativa, :matricula, :check)
     end
 end

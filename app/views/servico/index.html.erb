@@ -1,13 +1,23 @@
-<h1>Bem vindo, <%= $a.nome %> </h1>
+<% if $a.tipo == "grafica" %>
+	<h1><%= $a.nome %></h1>
+<% else %>
+	<h1>Bem vindo, <%= $a.nome %></h1>
+<% end %>
+
 <% if $a.tipo == "diretor" %>
 	<h2> Diretor da <%= $a.diretoria %></h2>
-<% else %>
+<% elsif $a.tipo == "professor" %>
 	<h2> Professor da <%= $a.diretoria %></h2>
 <% end %>
 
 <ul>
-  <li><%= link_to 'Nova Copia', controller:"fotocopia", action:"new" %></li>
-  <li><%= link_to 'Histórico de Copias', controller:"fotocopia", action:"index" %></li>
+  <% if $a.tipo == "grafica" %>
+  	<li><%= link_to 'Solicitações Pendentes', controller:"fotocopia", action:"index" %></li>
+  <% end %>
+  <% if $a.tipo != "grafica" %>
+  	<li><%= link_to 'Nova Copia', controller:"fotocopia", action:"new" %></li>
+  	<li><%= link_to 'Histórico de Copias', controller:"fotocopia", action:"index" %></li>
+  <% end %>
   <% if $a.tipo == "diretor" %>
 	<li><%= link_to 'Lista de Usuários', controller:"usuarios", action:"listaUsuarios", id:"1" %></li>
   <% end %>

@@ -1,4 +1,9 @@
-<h1>Solicitações Realizadas</h1>
+<% if $a.tipo == "grafica"%>
+  <h1>Solicitações Pendentes</h1>
+<% else %>
+  <h1>Solicitações Realizadas</h1>
+<% end %>
+
 
 <table>
   <thead>
@@ -7,8 +12,8 @@
       <th class="user_info">Originais</th>
       <th class="user_info">Quantidade</th>
       <th class="user_info">Data</th>
-      <th class="user_info">Justificativa</th>
       <th class="user_info">Matricula</th>
+      <th class="user_info">Pronto</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,10 +26,19 @@
           <td class="user_info"><%= fotocopium.originais %></td>
           <td class="user_info"><%= fotocopium.quantidade %></td>
           <td class="user_info"><%= fotocopium.data %></td>
-          <td class="user_info"><%= fotocopium.justificativa %></td>
           <td class="user_info"><%= fotocopium.matricula %></td>
+          
+          <% if fotocopium.check == 0 %>
+            <td class="user_info pronto">Não</td>
+          <% elsif fotocopium.check == 1 %>
+            <td class="user_info pronto">Sim</td>
+          <% else %>
+            <td class="user_info pronto">-</td>
+          <% end %>
+          
           <% if $a.tipo == "grafica" %>
             <td class="buttom_actions"><%= link_to 'Show', fotocopium %></td>
+            <td class="buttom_actions"><%= link_to 'Concluir', controller:"fotocopia", action:"concluir", id:fotocopium, remote: true %>
           <% else %>
             <td class="buttom_actions"><%= link_to 'Show', fotocopium %></td>
             <td class="buttom_actions"><%= link_to 'Edit', edit_fotocopium_path(fotocopium) %></td>
@@ -39,12 +53,19 @@
 
 <table class="buttom_opt">
   <tr>
-    <% if $a.tipo == "grafica" %>
-      <td class="user_opt"><%= link_to 'Sair', controller:"login", action:"index" %></td>
-    <% else %>
+    <% if $a.tipo != "grafica" %>
       <td class="user_opt"><%= link_to 'New', controller:"fotocopia", action:"new" %></td>
+    <% else %>
       <td class="user_opt"><%= link_to 'Voltar', controller:"servico", action:"index" %></td>
       <td class="user_opt"><%= link_to 'Sair', controller:"login", action:"index" %></td>
     <% end %>
   </tr>
 </table>
+
+<script>
+$(function() {
+  $("[data-remote=true]").bind("ajax:complete", function(x, res) {
+    $(this).parent().parent().find(".pronto").html($.parseJSON(res.responseText).check == 1 ? "Sim" : "Não");
+  });
+});
+</script>
