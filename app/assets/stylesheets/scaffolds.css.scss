@@ -36,9 +36,12 @@ div {
   }
   input {
     margin-top: 4px;
-    border: 1px solid black;
+    font-size: 14px;
     height: 25px;
     min-width: 60px;
+  }
+  label {
+    font-size: 14px;
   }
 }
 

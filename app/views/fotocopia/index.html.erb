@@ -23,9 +23,13 @@
           <td class="user_info"><%= fotocopium.data %></td>
           <td class="user_info"><%= fotocopium.justificativa %></td>
           <td class="user_info"><%= fotocopium.matricula %></td>
-          <td class="buttom_actions"><%= link_to 'Show', fotocopium %></td>
-          <td class="buttom_actions"><%= link_to 'Edit', edit_fotocopium_path(fotocopium) %></td>
-          <td class="buttom_actions"><%= link_to 'Destroy', fotocopium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if $a.tipo == "grafica" %>
+            <td class="buttom_actions"><%= link_to 'Show', fotocopium %></td>
+          <% else %>
+            <td class="buttom_actions"><%= link_to 'Show', fotocopium %></td>
+            <td class="buttom_actions"><%= link_to 'Edit', edit_fotocopium_path(fotocopium) %></td>
+            <td class="buttom_actions"><%= link_to 'Destroy', fotocopium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
     <% end %>
   </tbody>
@@ -35,8 +39,12 @@
 
 <table class="buttom_opt">
   <tr>
-    <td class="user_opt"><%= link_to 'New', controller:"fotocopia", action:"new" %></td>
-    <td class="user_opt"><%= link_to 'Voltar', controller:"servico", action:"index" %></td>
-    <td class="user_opt"><%= link_to 'Sair', controller:"login", action:"index" %></td>
+    <% if $a.tipo == "grafica" %>
+      <td class="user_opt"><%= link_to 'Sair', controller:"login", action:"index" %></td>
+    <% else %>
+      <td class="user_opt"><%= link_to 'New', controller:"fotocopia", action:"new" %></td>
+      <td class="user_opt"><%= link_to 'Voltar', controller:"servico", action:"index" %></td>
+      <td class="user_opt"><%= link_to 'Sair', controller:"login", action:"index" %></td>
+    <% end %>
   </tr>
 </table>

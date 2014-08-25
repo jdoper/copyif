@@ -5,7 +5,11 @@ class FotocopiaController < ApplicationController
   # GET /fotocopia.json
   def index
     $a = Usuario.find(session[:user_id])
-    @fotocopium = Fotocopium.where("matricula = #{$a.matricula}")
+    if $a.tipo == "grafica"
+      @fotocopium = Fotocopium.all
+    else
+      @fotocopium = Fotocopium.where("matricula = #{$a.matricula}")
+    end
   end
    
   # GET /fotocopia/1

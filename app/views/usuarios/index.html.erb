@@ -29,7 +29,6 @@
         <td class="buttom_actions"><%= link_to 'Show', usuario, id:$id %></td>
         <td class="buttom_actions"><%= link_to 'Edit', edit_usuario_path(usuario), id:$id %></td>
         <td class="buttom_actions"><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td class="buttom_actions"><%= link_to 'Login', controller:"servico", action:"index", id:usuario.id %></td>
       </tr>
       <% end %>
 

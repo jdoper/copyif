@@ -6,11 +6,12 @@
 		padding-bottom: 10px;
 		border-bottom: 1px solid black;
 	}
-	h1 {
+	h1{
 		color: black;
 		padding-bottom: 0.7em;
 		border-top: 1px solid black;
 		border-bottom: 2px solid black;
+		box-shadow: 2px 2px 5px gray;
 	}
 	table {
 		border-collapse: collapse;
@@ -49,5 +50,8 @@
 			color: #6D6D6D;
 			display: block;
 		}
+	}
+	.show_info {
+	  margin-top: 15px;
 	}
 }
