@@ -1,5 +1,5 @@
 class FotocopiaController < ApplicationController
-  before_action :set_fotocopium, only: [:show, :edit, :update, :destroy]
+  before_action :verify_login, :set_fotocopium, only: [:show, :edit, :update, :destroy]
 
   # GET /fotocopia
   # GET /fotocopia.json

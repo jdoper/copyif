@@ -55,6 +55,8 @@
   <tr>
     <% if $a.tipo != "grafica" %>
       <td class="user_opt"><%= link_to 'New', controller:"fotocopia", action:"new" %></td>
+      <td class="user_opt"><%= link_to 'Voltar', controller:"servico", action:"index" %></td>
+      <td class="user_opt"><%= link_to 'Sair', controller:"login", action:"index" %></td>
     <% else %>
       <td class="user_opt"><%= link_to 'Voltar', controller:"servico", action:"index" %></td>
       <td class="user_opt"><%= link_to 'Sair', controller:"login", action:"index" %></td>

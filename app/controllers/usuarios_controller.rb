@@ -1,9 +1,8 @@
 class UsuariosController < ApplicationController
-  before_action :set_usuario, only: [:show, :edit, :update, :destroy, :login]
+  before_action :verify_login, :set_usuario, only: [:show, :edit, :update, :destroy, :login, :listaUsuarios]
 
   # GET /usuarios
   # GET /usuarios.json
-
 
   def index
     @usuarios = Usuario.all
@@ -17,7 +16,12 @@ class UsuariosController < ApplicationController
   end
 
   def listaUsuarios
-    @usuarios = Usuario.where("diretoria = '#{$a.diretoria}'")
+    $a = Usuario.find(session[:user_id])
+    if $a.tipo == "diretor"
+      @usuarios = Usuario.where("diretoria = '#{$a.diretoria}'")
+    elsif $a.tipo == "professor" or $a.tipo == "grafica"
+      @usuarios = Usuario.where("matricula = '#{$a.matricula}'")
+    end
 
     if params[:id] == "1"
       $id = "professor"
