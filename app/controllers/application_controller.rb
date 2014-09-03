@@ -5,16 +5,12 @@ class ApplicationController < ActionController::Base
 
   private
 
-  helper_method :current_user, :verify_login
-
-  def current_user
-    User.find_by id: session[:user_id] if session[:user_id]
-  end
+  helper_method :verify_login
 
   def verify_login
   	if session[:user_id].nil?
-  		redirect_to root_url
-  		flash[:notice] = 'Matricula ou senha invalidos.'
+  		redirect_to root_path
+  		flash[:alert] = 'Usuário não autenticado.'
   	end
   end
 end

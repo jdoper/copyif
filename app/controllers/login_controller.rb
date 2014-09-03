@@ -13,13 +13,13 @@ class LoginController < ApplicationController
       redirect_to controller:"servico", action:"index", notice: 'Usuario autenticado.'
   	else
       redirect_to root_url
-      flash[:alert] = 'Matricula ou senha invalidos.'
+      flash[:alert] = 'Matrícula ou senha inválidos.'
     end
   end
 
   def destroy
     session[:user_id] = nil
-    flash[:notice] = 'Usuario deslogado.'
+    flash[:notice] = 'Usuário deslogado.'
     redirect_to root_url
   end
 
