@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :diretors
-
   get 'servico/edit'
 
   get 'servico/delete'
