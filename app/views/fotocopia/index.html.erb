@@ -4,6 +4,12 @@
   <h1>Solicitações Realizadas</h1>
 <% end %>
 
+<table>
+  <tr>
+    <th class="info_color"></th>
+    <th class="chata"> Solicitação Vencida</th>
+  </tr>
+</table>
 
 <table>
   <thead>
@@ -20,8 +26,11 @@
 
   <tbody>
     <% @fotocopium.each do |fotocopium| %>
-
-        <tr>
+        <tr
+          <% if (fotocopium.data).month >= (Time.now).month and (fotocopium.data).day > (Time.now).day %>
+            style="background-color: #FDDDDD"
+          <% end %>
+        >
           <td class="user_info"><%= fotocopium.titulo %></td>
           <td class="user_info"><%= fotocopium.originais %></td>
           <td class="user_info"><%= fotocopium.quantidade %></td>
@@ -36,9 +45,12 @@
             <td class="user_info pronto">-</td>
           <% end %>
           
-          <% if $a.tipo == "grafica" %>
+          <% if $a.tipo == "grafica" and $id == "1" %>
             <td class="buttom_actions"><%= link_to 'Show', fotocopium %></td>
             <td class="buttom_actions"><%= link_to 'Concluir', controller:"fotocopia", action:"concluir", id:fotocopium, remote: true %>
+          <% elsif $a.tipo == "grafica" and $id == "2" %>
+            <td class="buttom_actions"><%= link_to 'Show', fotocopium %></td>
+            <td class="buttom_actions"><%= link_to 'Uncheck', controller:"fotocopia", action:"uncheck", id:fotocopium, remote: true %>
           <% else %>
             <td class="buttom_actions"><%= link_to 'Show', fotocopium %></td>
             <td class="buttom_actions"><%= link_to 'Edit', edit_fotocopium_path(fotocopium) %></td>

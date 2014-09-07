@@ -33,12 +33,12 @@
       <%= f.text_area :justificativa %>
     </div>
     <div class="field">
-      <%= f.label :matricula %><br>
-      <%= f.number_field :matricula, :value => $a.matricula, :readonly => true %>
+      <!--<%= f.label :matricula %><br>-->
+      <%= f.hidden_field :matricula, :value => $a.matricula, :readonly => true %>
     </div>
     <div class="field">
-      <%= f.label :check %><br>
-      <%= f.number_field :check, :value => 0, :readonly => true %>
+      <!--<%= f.label :check %><br>-->
+      <%= f.hidden_field :check, :value => 0, :readonly => true %>
     </div>
     <div class="actions">
       <%= f.submit value="Criar" %>

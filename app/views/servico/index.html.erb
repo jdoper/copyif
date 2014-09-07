@@ -12,7 +12,8 @@
 
 <ul>
   <% if $a.tipo == "grafica" %>
-  	<li><%= link_to 'Solicitações Pendentes', controller:"fotocopia", action:"index" %></li>
+  	<li><%= link_to 'Solicitações Pendentes', controller:"fotocopia", action:"index", id:"1" %></li>
+    <li><%= link_to 'Solicitações Concluidas', controller:"fotocopia", action:"index", id:"2" %></li>
   <% end %>
   <% if $a.tipo != "grafica" %>
   	<li><%= link_to 'Nova Copia', controller:"fotocopia", action:"new" %></li>

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get 'fotocopia/concluir'  
 
+  get 'fotocopia/uncheck'
+
   post '/autenticar', to: 'login#create'
   
   get '/sair', to: 'login#destroy'
