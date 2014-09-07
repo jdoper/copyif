@@ -5,6 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+=begin
 Usuario.create(
 	nome: "Gráfica", 
 	matricula: 12345, 
@@ -60,13 +62,76 @@ Usuario.create(
 	senha: 1234, 
 	tipo: "professor"
 )
+=end
 
-#Fotocopium.create(
-#	titulo:, 
-#	originais:, 
-#	quantidade:, 
-#	data:, 
-#	justificativa:, 
-#	matricula:, 
-#	check:
-#)
+Fotocopium.create(
+	titulo: "Paradigmas de Programação", 
+	originais: 20, 
+	quantidade: 10, 
+	"data(1i)"=>"2014", 
+ 	"data(2i)"=>"9", 
+ 	"data(3i)"=>"7", 
+	justificativa: "Material de estudo", 
+	matricula: 2013101, 
+	check: 0
+)
+
+Fotocopium.create(
+	titulo: "Concreto Armado", 
+	originais: 20, 
+	quantidade: 10, 
+	"data(1i)"=>"2014", 
+ 	"data(2i)"=>"9", 
+ 	"data(3i)"=>"7", 
+	justificativa: "Material de estudo", 
+	matricula: 2013202, 
+	check: 0
+)
+
+Fotocopium.create(
+	titulo: "Estruturas de Dados", 
+	originais: 20, 
+	quantidade: 10, 
+	"data(1i)"=>"2014", 
+ 	"data(2i)"=>"9", 
+ 	"data(3i)"=>"7", 
+	justificativa: "Material de estudo", 
+	matricula: 2013111, 
+	check: 0
+)
+
+Fotocopium.create(
+	titulo: "Diagramas UML", 
+	originais: 20, 
+	quantidade: 10, 
+	"data(1i)"=>"2014", 
+ 	"data(2i)"=>"9", 
+ 	"data(3i)"=>"7", 
+	justificativa: "Material de estudo", 
+	matricula: 2013112, 
+	check: 0
+)
+
+Fotocopium.create(
+	titulo: "AutoCAD básico", 
+	originais: 20, 
+	quantidade: 10, 
+	"data(1i)"=>"2014", 
+ 	"data(2i)"=>"9", 
+ 	"data(3i)"=>"7", 
+	justificativa: "Material de estudo", 
+	matricula: 2013221, 
+	check: 0
+)
+
+Fotocopium.create(
+	titulo: "Estruturas Metalicas", 
+	originais: 20, 
+	quantidade: 10, 
+	"data(1i)"=>"2014", 
+ 	"data(2i)"=>"9", 
+ 	"data(3i)"=>"7", 
+	justificativa: "Material de estudo", 
+	matricula: 2013222, 
+	check: 0
+)

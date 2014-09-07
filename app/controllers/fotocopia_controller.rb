@@ -5,8 +5,12 @@ class FotocopiaController < ApplicationController
   # GET /fotocopia.json
   def index
     $a = Usuario.find(session[:user_id])
-    if $a.tipo == "grafica"
-      @fotocopium = Fotocopium.all
+    $id = params[:id]
+
+    if $a.tipo == "grafica" and params[:id] == "1"
+      @fotocopium = Fotocopium.where('check' => '0')
+    elsif $a.tipo == "grafica" and params[:id] == "2"
+      @fotocopium = Fotocopium.where('check' => '1')
     else
       @fotocopium = Fotocopium.where("matricula = #{$a.matricula}")
     end
@@ -70,6 +74,15 @@ class FotocopiaController < ApplicationController
   end
 
   def concluir
+    @fotocopium = Fotocopium.find(params[:id])
+    @fotocopium.check = 1
+    
+    if @fotocopium.save
+      render json: @fotocopium
+    end
+  end
+
+  def uncheck
     @fotocopium = Fotocopium.find(params[:id])
     @fotocopium.check = 0
     

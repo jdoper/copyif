@@ -52,6 +52,16 @@
 		}
 	}
 	.show_info {
-	  margin-top: 15px;
+		margin-top: 15px;
+	}
+	th.info_color {
+    	width:25px;
+    	height:25px;
+    	border: 1px solid black;
+    	background-color: #FDDDDD;
+    	margin-left: 10px;
+	}
+	th.chata {
+		padding-left: 10px;  
 	}
 }
