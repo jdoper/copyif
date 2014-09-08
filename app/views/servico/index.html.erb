@@ -10,6 +10,13 @@
 	<h2> Professor da <%= $a.diretoria %></h2>
 <% end %>
 
+<% if notice %>
+  <center><p class="alert-success" style="padding-top: 8px"><%= notice %></p></center>
+<% end %>
+<% if alert %>
+  <center><p class="alert-danger" style="padding-top: 8px"><%= alert %></p></center>
+<% end %>
+
 <ul>
   <% if $a.tipo == "grafica" %>
   	<li><%= link_to 'Solicitações Pendentes', controller:"fotocopia", action:"index", id:"1" %></li>
@@ -20,7 +27,7 @@
   	<li><%= link_to 'Histórico de Copias', controller:"fotocopia", action:"index" %></li>
   <% end %>
   <% if $a.tipo == "diretor" %>
-	<li><%= link_to 'Lista de Usuários', controller:"usuarios", action:"listaUsuarios", id:"1" %></li>
+	<li><%= link_to 'Lista de Usuários', controller:"usuarios", action:"listaUsuarios", id:9 %></li>
   <% end %>
   <li><%= link_to 'Sair', controller:"login", action:"destroy" %></li>
 </ul>

@@ -18,17 +18,10 @@ class UsuariosController < ApplicationController
   def listaUsuarios
     $a = Usuario.find(session[:user_id])
     if $a.tipo == "diretor"
-      @usuarios = Usuario.where("diretoria = '#{$a.diretoria}'")
+      @usuarios = Usuario.where("diretoria = '#{$a.diretoria}' and tipo = 'professor'")
     elsif $a.tipo == "professor" or $a.tipo == "grafica"
       @usuarios = Usuario.where("matricula = '#{$a.matricula}'")
     end
-
-    if params[:id] == "1"
-      $id = "professor"
-    else
-      $id = "diretor"
-    end
-
   end
   
   def log
