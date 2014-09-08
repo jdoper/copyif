@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :admins
+
   get 'servico/edit'
 
   get 'servico/delete'
@@ -19,6 +21,8 @@ Rails.application.routes.draw do
   post '/autenticar', to: 'login#create'
   
   get '/sair', to: 'login#destroy'
+
+  post '/autorizar', to: 'admins#login'
 
   resources :fotocopia
 

@@ -1,0 +1,20 @@
+<center>
+	<h1>Área Administrativa</h1>
+	<br>
+
+	<h2>Estatísticas</h2>
+	<p>Existem <b><%= @total_users %></b> usuários</p>
+	<p>Foram realizados <b><%= @total_users %></b> pedidos</p>
+	<br>
+
+	<h2>Limite atual de copias</h2>
+	<p><b><%= @user.limiteCopias %></b> copias</p>
+	<br>
+
+	<table class="buttom_opt">
+      <tr>
+        <td class="user_opt"><%= link_to 'Editar Limite', edit_admin_path(@admin) %></td>
+        <td class="user_opt"><%= link_to 'Sair', controller:"login", action:"destroy" %></td>
+      </tr>
+    </table>
+</center>

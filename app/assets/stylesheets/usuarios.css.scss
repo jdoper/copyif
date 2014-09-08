@@ -60,7 +60,31 @@
 }
 .user_opt {
 	text-align: center;
-	padding-left: 2em;
+	padding: 1em;
+	a {
+		text-decoration: none;
+		width: 140px;
+		height: 20px;
+		display: block;
+		text-align: center;
+		float: right;
+		padding: 3px;
+		background-color: white;
+		color: black;
+		border: 1px solid black;
+		font-size: 18px;
+		box-shadow: 2px 2px 2px gray;
+	}
+	a:hover {
+		background-color:#D6D6D6;
+		color: #6D6D6D;
+		display: block;
+	}
+}
+
+.user_opt_center {
+	text-align: center;
+	padding-top: 20px;
 	a {
 		text-decoration: none;
 		width: 140px;
