@@ -35,18 +35,47 @@ class FotocopiaController < ApplicationController
   # POST /fotocopia
   # POST /fotocopia.json
   def create
-    @fotocopium = Fotocopium.new(fotocopium_params)
+    $a = Usuario.find(session[:user_id])
+    admin = Admin.find_by senha: 909090
 
-    respond_to do |format|
-      if @fotocopium.save
-        format.html { redirect_to @fotocopium, notice: 'Fotocopium was successfully created.' }
-        format.json { render :show, status: :created, location: @fotocopium }
-      else
-        format.html { render :new }
-        @fotocopium.matricula = @a.matricula
-        format.json { render json: @fotocopium.errors, status: :unprocessable_entity }
+    if $a.tipo == "diretor" and $a.qtdCopias < admin.limiteCopias
+      @fotocopium = Fotocopium.new(fotocopium_params)
+      $a.qtdCopias += 1
+      $a.save
+
+      respond_to do |format|
+        if @fotocopium.save
+          format.html { redirect_to @fotocopium, notice: 'Seu pedido foi criado' }
+          format.json { render :show, status: :created, location: @fotocopium }
+        else
+          format.html { render :new }
+          @fotocopium.matricula = @a.matricula
+          format.json { render json: @fotocopium.errors, status: :unprocessable_entity }
+        end
       end
+      
+    elsif $a.tipo == "professor"
+      @fotocopium = Fotocopium.new(fotocopium_params)
+      $a.qtdCopias += 1
+      $a.save
+
+      respond_to do |format|
+        if @fotocopium.save
+          format.html { redirect_to @fotocopium, notice: 'Seu pedido foi criado' }
+          format.json { render :show, status: :created, location: @fotocopium }
+        else
+          format.html { render :new }
+          @fotocopium.matricula = @a.matricula
+          format.json { render json: @fotocopium.errors, status: :unprocessable_entity }
+        end
+      end
+
+    else
+      redirect_to controller:"servico", action:"index"
+      flash[:alert] = 'Sua cota de copias foi excedida'
     end
+
+
   end
 
   # PATCH/PUT /fotocopia/1
@@ -67,8 +96,12 @@ class FotocopiaController < ApplicationController
   # DELETE /fotocopia/1.json
   def destroy
     @fotocopium.destroy
+    $a = Usuario.find(session[:user_id])
+    $a.qtdCopias -= 1
+    $a.save
+    
     respond_to do |format|
-      format.html { redirect_to fotocopia_url, notice: 'Fotocopium was successfully destroyed.' }
+      format.html { redirect_to fotocopia_url, notice: 'Sua copia foi destruida' }
       format.json { head :no_content }
     end
   end
@@ -76,7 +109,7 @@ class FotocopiaController < ApplicationController
   def concluir
     @fotocopium = Fotocopium.find(params[:id])
     @fotocopium.check = 1
-    
+
     if @fotocopium.save
       render json: @fotocopium
     end

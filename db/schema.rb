@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908013234) do
+ActiveRecord::Schema.define(version: 20140908025902) do
 
   create_table "admins", force: true do |t|
     t.integer  "senha"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20140908013234) do
     t.datetime "updated_at"
     t.integer  "id_usuario"
     t.string   "tipo"
+    t.integer  "qtdCopias"
   end
 
 end

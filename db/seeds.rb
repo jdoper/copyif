@@ -6,13 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-=begin
+
 Usuario.create(
 	nome: "Gráfica", 
 	matricula: 12345, 
 	diretoria: "", 
 	senha: 1234, 
-	tipo: "grafica"
+	tipo: "grafica",
+	qtdCopias: 0
 )
 
 Usuario.create(
@@ -20,7 +21,8 @@ Usuario.create(
 	matricula: 2013101, 
 	diretoria: "DIATINF", 
 	senha: 1234, 
-	tipo: "diretor"
+	tipo: "diretor",
+	qtdCopias: 0
 )
 
 Usuario.create(
@@ -28,7 +30,8 @@ Usuario.create(
 	matricula: 2013202, 
 	diretoria: "DIACON", 
 	senha: 1234, 
-	tipo: "diretor"
+	tipo: "diretor",
+	qtdCopias: 0
 )
 
 Usuario.create(
@@ -36,7 +39,8 @@ Usuario.create(
 	matricula: 2013111, 
 	diretoria: "DIATINF", 
 	senha: 1234, 
-	tipo: "professor"
+	tipo: "professor",
+	qtdCopias: 0
 )
 
 Usuario.create(
@@ -44,7 +48,8 @@ Usuario.create(
 	matricula: 2013112, 
 	diretoria: "DIATINF", 
 	senha: 1234, 
-	tipo: "professor"
+	tipo: "professor",
+	qtdCopias: 0
 )
 
 Usuario.create(
@@ -52,7 +57,8 @@ Usuario.create(
 	matricula: 2013221, 
 	diretoria: "DIACON", 
 	senha: 1234, 
-	tipo: "professor"
+	tipo: "professor",
+	qtdCopias: 0
 )
 
 Usuario.create(
@@ -60,7 +66,8 @@ Usuario.create(
 	matricula: 2013222, 
 	diretoria: "DIACON", 
 	senha: 1234, 
-	tipo: "professor"
+	tipo: "professor",
+	qtdCopias: 0
 )
 
 Fotocopium.create(
@@ -134,9 +141,9 @@ Fotocopium.create(
 	matricula: 2013222, 
 	check: 0
 )
-=end
-
+=begin
 Admin.create(
 	senha: 909090,
 	limiteCopias: 400
 )
+=end

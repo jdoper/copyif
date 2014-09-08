@@ -50,6 +50,7 @@ body{
 	height: 800px;
 }
 .alert-success {
+	margin-top: 15px;
 	border: 1px solid green;
 	width: 300px;
 	height: 26px;
@@ -59,6 +60,7 @@ body{
 	border-radius: 2px;
 }
 .alert-danger {
+	margin-top: 15px;
 	border: 1px solid red;
 	width: 300px;
 	height: 26px;
