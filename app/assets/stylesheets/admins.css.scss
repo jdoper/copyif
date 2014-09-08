@@ -1,0 +1,15 @@
+// Place all the styles related to the Admins controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.admins {
+	h1 {
+		color: black;
+		padding-bottom: 0.7em;
+		border-top: 1px solid black;
+		border-bottom: 2px solid black;
+		box-shadow: 2px 2px 5px gray;
+	}
+	h2 {
+		padding: 5px;
+	}
+}

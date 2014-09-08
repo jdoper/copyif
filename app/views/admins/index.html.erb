@@ -1,0 +1,20 @@
+<% if notice %>
+  <center><p class="alert-success" style="padding-top: 8px"><%= notice %></p></center>
+<% end %>
+<% if alert%>
+  <center><p class="alert-danger" style="padding-top: 8px"><%= alert %></p></center>
+<% end %>
+
+<center>
+  <h3>Insira a senha administrativa</h3>
+  <%= form_tag autorizar_path do %> <!-- Inserir o autorizar o routes -->
+    <div class="field">
+      <%= label_tag 'senha', 'Senha' %><br>
+      <%= password_field_tag 'senha' %>
+    </div>
+    <div class="actions">
+      <%= submit_tag 'Login' %>
+    </div>
+  <% end %>
+</center>
+<br>

@@ -62,7 +62,6 @@ Usuario.create(
 	senha: 1234, 
 	tipo: "professor"
 )
-=end
 
 Fotocopium.create(
 	titulo: "Paradigmas de Programação", 
@@ -134,4 +133,10 @@ Fotocopium.create(
 	justificativa: "Material de estudo", 
 	matricula: 2013222, 
 	check: 0
+)
+=end
+
+Admin.create(
+	senha: 909090,
+	limiteCopias: 400
 )

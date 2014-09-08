@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825172536) do
+ActiveRecord::Schema.define(version: 20140908013234) do
+
+  create_table "admins", force: true do |t|
+    t.integer  "senha"
+    t.integer  "limiteCopias"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "diretors", force: true do |t|
     t.string   "nome"

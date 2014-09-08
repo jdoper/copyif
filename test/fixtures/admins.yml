@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  senha: 1
+  limiteCopias: 1
+
+two:
+  senha: 1
+  limiteCopias: 1
