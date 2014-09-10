@@ -83,7 +83,7 @@ class FotocopiaController < ApplicationController
   def update
     respond_to do |format|
       if @fotocopium.update(fotocopium_params)
-        format.html { redirect_to @fotocopium, notice: 'Fotocopium was successfully updated.' }
+        format.html { redirect_to @fotocopium, notice: 'A fotocopia foi alterada' }
         format.json { render :show, status: :ok, location: @fotocopium }
       else
         format.html { render :edit }

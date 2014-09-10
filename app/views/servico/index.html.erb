@@ -1,33 +1,41 @@
+<!-- Nome do usuário -->
 <% if $a.tipo == "grafica" %>
 	<h1><%= $a.nome %></h1>
 <% else %>
 	<h1>Bem vindo, <%= $a.nome %></h1>
 <% end %>
 
+<!-- Função do usuário -->
 <% if $a.tipo == "diretor" %>
 	<h2> Diretor da <%= $a.diretoria %></h2>
 <% elsif $a.tipo == "professor" %>
 	<h2> Professor da <%= $a.diretoria %></h2>
 <% end %>
 
-<% if notice %>
-  <center><p class="alert-success" style="padding-top: 8px"><%= notice %></p></center>
+<!-- Alertas da página -->
+<% if notice %> <!-- retirar style, aplicaion.css <= padding-top: 8px  -->
+  <center><p class="alert-success"><%= notice %></p></center>
 <% end %>
-<% if alert %>
-  <center><p class="alert-danger" style="padding-top: 8px"><%= alert %></p></center>
+<% if alert %> <!-- retirar style, aplicaion.css <= padding-top: 8px  -->
+  <center><p class="alert-danger"><%= alert %></p></center>
 <% end %>
 
 <ul>
+  <!-- Botões visiveis para Gráfica -->
   <% if $a.tipo == "grafica" %>
   	<li><%= link_to 'Solicitações Pendentes', controller:"fotocopia", action:"index", id:"1" %></li>
-    <li><%= link_to 'Solicitações Concluidas', controller:"fotocopia", action:"index", id:"2" %></li>
-  <% end %>
-  <% if $a.tipo != "grafica" %>
+  	<li><%= link_to 'Solicitações Concluidas', controller:"fotocopia", action:"index", id:"2" %></li>
+  <!-- Botões comuns para Diretores e Professores -->
+  <% elsif $a.tipo != "grafica" %>
   	<li><%= link_to 'Nova Copia', controller:"fotocopia", action:"new" %></li>
   	<li><%= link_to 'Histórico de Copias', controller:"fotocopia", action:"index" %></li>
   <% end %>
+  
+  <!-- Botão exclusivo para Diretor -->
   <% if $a.tipo == "diretor" %>
-	<li><%= link_to 'Lista de Usuários', controller:"usuarios", action:"listaUsuarios", id:9 %></li>
+	<li><%= link_to 'Lista de Usuários', controller:"usuarios", action:"listaUsuarios" %></li>
   <% end %>
+  
+   <!-- Botão comum a todos (logout) -->
   <li><%= link_to 'Sair', controller:"login", action:"destroy" %></li>
 </ul>

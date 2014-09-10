@@ -1,18 +1,17 @@
 class UsuariosController < ApplicationController
-  before_action :verify_login, :set_usuario, only: [:show, :edit, :update, :destroy, :login, :listaUsuarios]
+  before_action :verify_login, only: [:show, :edit, :update, :destroy, :listaUsuarios]
+  before_action :set_usuario, only: [:show, :edit, :update, :destroy]
 
   # GET /usuarios
   # GET /usuarios.json
 
   def index
     @usuarios = Usuario.all
-
     if params[:id] == "1"
       $id = "professor"
     else
       $id = "diretor"
     end
-
   end
 
   def listaUsuarios
