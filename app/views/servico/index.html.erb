@@ -23,12 +23,13 @@
 <ul>
   <!-- Botões visiveis para Gráfica -->
   <% if $a.tipo == "grafica" %>
-  	<li><%= link_to 'Solicitações Pendentes', controller:"fotocopia", action:"index", id:"1" %></li>
-  	<li><%= link_to 'Solicitações Concluidas', controller:"fotocopia", action:"index", id:"2" %></li>
+  	<li><%= link_to 'Pendentes', controller:"fotocopia", action:"index", id:"1" %></li>
+  	<li><%= link_to 'Concluidas', controller:"fotocopia", action:"index", id:"2" %></li>
   <!-- Botões comuns para Diretores e Professores -->
   <% elsif $a.tipo != "grafica" %>
   	<li><%= link_to 'Nova Copia', controller:"fotocopia", action:"new" %></li>
-  	<li><%= link_to 'Histórico de Copias', controller:"fotocopia", action:"index" %></li>
+    <li><%= link_to 'Pendentes', controller:"fotocopia", action:"index", id:"1" %></li>
+    <li><%= link_to 'Concluidas', controller:"fotocopia", action:"index", id:"2" %></li>
   <% end %>
   
   <!-- Botão exclusivo para Diretor -->

@@ -3,6 +3,7 @@ class ServicoController < ApplicationController
   
   def index
     $a = Usuario.find(session[:user_id])
+ 
   end
 
   def order

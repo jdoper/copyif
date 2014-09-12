@@ -141,9 +141,8 @@ Fotocopium.create(
 	matricula: 2013222, 
 	check: 0
 )
-=begin
+
 Admin.create(
 	senha: 909090,
 	limiteCopias: 400
 )
-=end

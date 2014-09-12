@@ -13,7 +13,7 @@ class LoginController < ApplicationController
       redirect_to controller:"servico", action:"index", notice: 'Usuario autenticado.'
   	else
       redirect_to root_url
-      flash[:alert] = 'Matrícula ou senha inválidos'
+      flash[:alert] = 'Matrícula ou senha inválidas'
     end
   end
 

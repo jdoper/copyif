@@ -7,12 +7,28 @@ class FotocopiaController < ApplicationController
     $a = Usuario.find(session[:user_id])
     $id = params[:id]
 
-    if $a.tipo == "grafica" and params[:id] == "1"
-      @fotocopium = Fotocopium.where('check' => '0')
-    elsif $a.tipo == "grafica" and params[:id] == "2"
-      @fotocopium = Fotocopium.where('check' => '1')
+    # if $a.tipo == "grafica" and params[:id] == "1"
+    #   @fotocopium = Fotocopium.where('check' => '0')
+    # elsif $a.tipo == "grafica" and params[:id] == "2"
+    #   @fotocopium = Fotocopium.where('check' => '1')
+    # else
+    #   @fotocopium = Fotocopium.where("matricula = #{$a.matricula}")
+    # end
+
+    case $a.tipo
+    when "grafica"
+      if params[:id] == "1"
+        @fotocopium = Fotocopium.where('check' => '0')
+      elsif params[:id] == "2"
+        @fotocopium = Fotocopium.where('check' => '1')
+      end
+    when "professor"
+      if params[:id] == "1"
+        @fotocopium = Fotocopium.where("matricula = #{$a.matricula}",'check' => '0') 
+      elsif params[:id] == "2"
+        @fotocopium = Fotocopium.where("matricula = #{$a.matricula}",'check' => '1')
+      end
     else
-      @fotocopium = Fotocopium.where("matricula = #{$a.matricula}")
     end
   end
    
@@ -101,7 +117,7 @@ class FotocopiaController < ApplicationController
     $a.save
     
     respond_to do |format|
-      format.html { redirect_to fotocopia_url, notice: 'Sua copia foi destruida' }
+      format.html { redirect_to fotocopia_url(id: $id), notice: 'Sua copia foi destruida' }
       format.json { head :no_content }
     end
   end
@@ -132,6 +148,6 @@ class FotocopiaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fotocopium_params
-      params.require(:fotocopium).permit(:titulo, :originais, :quantidade, :data, :justificativa, :matricula, :check)
+      params.require(:fotocopium).permit(:titulo, :originais, :quantidade, :data, :justificativa, :matricula, :check, :id)
     end
 end
