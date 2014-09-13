@@ -16,20 +16,26 @@ class FotocopiaController < ApplicationController
     # end
 
     case $a.tipo
-    when "grafica"
-      if params[:id] == "1"
-        @fotocopium = Fotocopium.where('check' => '0')
-      elsif params[:id] == "2"
-        @fotocopium = Fotocopium.where('check' => '1')
+      when "grafica"
+        if params[:id] == "1"
+          @fotocopium = Fotocopium.where('check' => '0')
+        elsif params[:id] == "2"
+          @fotocopium = Fotocopium.where('check' => '1')
+        end
+      when "professor"
+        if params[:id] == "1"
+          @fotocopium = Fotocopium.where({ matricula: "#{$a.matricula}", check: '0' }) 
+        elsif params[:id] == "2"
+          @fotocopium = Fotocopium.where({ matricula: "#{$a.matricula}", check: '1' })
+        end
+      when "diretor"
+        if params[:id] == "1"
+          @fotocopium = Fotocopium.where({ matricula: "#{$a.matricula}", check: '0' }) 
+        elsif params[:id] == "2"
+          @fotocopium = Fotocopium.where({ matricula: "#{$a.matricula}", check: '1' })
       end
-    when "professor"
-      if params[:id] == "1"
-        @fotocopium = Fotocopium.where("matricula = #{$a.matricula}",'check' => '0') 
-      elsif params[:id] == "2"
-        @fotocopium = Fotocopium.where("matricula = #{$a.matricula}",'check' => '1')
-      end
-    else
     end
+
   end
    
   # GET /fotocopia/1

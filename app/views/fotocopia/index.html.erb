@@ -27,7 +27,7 @@
   <tbody>
     <% @fotocopium.each do |fotocopium| %>
         <tr
-          <% if (fotocopium.data).month >= (Time.now).month and (fotocopium.data).day > (Time.now).day %>
+          <% if (fotocopium.data).month <= (Time.now).month and (fotocopium.data).day < (Time.now).day %>
             style="background-color: #FDDDDD"
           <% end %>
         >

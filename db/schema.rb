@@ -20,15 +20,6 @@ ActiveRecord::Schema.define(version: 20140908025902) do
     t.datetime "updated_at"
   end
 
-  create_table "diretors", force: true do |t|
-    t.string   "nome"
-    t.integer  "matricula"
-    t.string   "senha"
-    t.string   "diretoria"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "fotocopia", force: true do |t|
     t.string   "titulo"
     t.integer  "originais"
