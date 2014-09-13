@@ -12,6 +12,9 @@ class UsuariosController < ApplicationController
     else
       $id = "diretor"
     end
+
+    $a = Usuario.find(session[:user_id])
+    
   end
 
   def listaUsuarios
@@ -30,6 +33,9 @@ class UsuariosController < ApplicationController
   # GET /usuarios/1.json
   def show
     $login = @usuario
+    $m = @usuario.matricula
+
+    
   end
 
   # GET /usuarios/new

@@ -1,0 +1,73 @@
+<% if $a.tipo == "grafica"%>
+  <h1>Solicitações Pendentes</h1>
+<% else %>
+  <h1>Solicitações Realizadas</h1>
+<% end %>
+
+<table>
+  <tr>
+    <th class="info_color"></th>
+    <th class="chata"> Solicitação Vencida</th>
+  </tr>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th class="user_info">Titulo</th>
+      <th class="user_info">Originais</th>
+      <th class="user_info">Quantidade</th>
+      <th class="user_info">Data</th>
+      <th class="user_info">Matricula</th>
+ 
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+   
+  <tbody>
+
+    <% @fotocopium.each do |fotocopium| %>
+        <tr
+          <% if (fotocopium.data).month <= (Time.now).month and (fotocopium.data).day < (Time.now).day %>
+            style="background-color: #FDDDDD"
+          <% end %>
+        
+          <td class="user_info"></td>
+          <td class="user_info"><%= fotocopium.titulo %></td>
+          <td class="user_info"><%= fotocopium.originais %></td>
+          <td class="user_info"><%= fotocopium.quantidade %></td>
+          <td class="user_info"><%= fotocopium.data %></td>
+          <td class="user_info"><%= fotocopium.matricula %></td>
+           
+
+          <!-- 
+            <td class="buttom_actions"><%= link_to 'Mostrar', fotocopium %></td>
+            <td class="buttom_actions"><%= link_to 'Editar', edit_fotocopium_path(fotocopium) %></td>
+            <td class="buttom_actions"><%= link_to 'Excluir', fotocopium, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+           -->
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+
+<table class="buttom_opt">
+  <tr>
+    <% if $a.tipo != "grafica" %>
+      <td class="user_opt"><%= link_to 'Novo', controller:"fotocopia", action:"new" %></td>
+      <td class="user_opt"><%= link_to 'Voltar', controller:"servico", action:"index" %></td>
+    <% else %>
+      <td class="user_opt"><%= link_to 'Voltar', controller:"servico", action:"index" %></td>
+    <% end %>
+  </tr>
+</table>
+
+<script>
+$(function() {
+  $("[data-remote=true]").bind("ajax:complete", function(x, res) {
+    $(this).parent().parent().find(".pronto").html($.parseJSON(res.responseText).check == 1 ? "Sim" : "Não");
+  });
+});
+</script>

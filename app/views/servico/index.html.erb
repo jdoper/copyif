@@ -35,6 +35,7 @@
   <!-- Botão exclusivo para Diretor -->
   <% if $a.tipo == "diretor" %>
 	<li><%= link_to 'Lista de Usuários', controller:"usuarios", action:"listaUsuarios" %></li>
+  <li><%= link_to 'Historico da Diretoria', controller:"fotocopia", action:"historicoGeral" %></li>
   <% end %>
   
    <!-- Botão comum a todos (logout) -->

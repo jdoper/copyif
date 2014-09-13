@@ -14,7 +14,7 @@ class FotocopiaController < ApplicationController
     # else
     #   @fotocopium = Fotocopium.where("matricula = #{$a.matricula}")
     # end
-
+    $d = $a.matricula
     case $a.tipo
       when "grafica"
         if params[:id] == "1"
@@ -37,11 +37,24 @@ class FotocopiaController < ApplicationController
     end
 
   end
-   
+  
+  def historico
+    
+     @fotocopium = Fotocopium.where({matricula: $m, check: '1'})
   # GET /fotocopia/1
   # GET /fotocopia/1.json
+ end
+
+ def historicoGeral
+   @u = Usuario.where(diretoria: $a.diretoria).pluck(:matricula)
+   @a = $a.diretoria
+   @fotocopium =  Fotocopium.where(matricula: @u)
+    # @fotocopium = Fotocopium.find_by_sql("select * from fotocopia f
+    #  where f.matricula IN ? ", @u) 
+end
+
   def show
-    
+  
   end
 
   # GET /fotocopia/new

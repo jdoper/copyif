@@ -24,6 +24,10 @@ Rails.application.routes.draw do
 
   post '/autorizar', to: 'admins#login'
 
+  get 'fotocopia/historico'
+
+  get 'fotocopia/historicoGeral'
+
   resources :fotocopia
 
   resources :usuarios
