@@ -22,6 +22,15 @@
     </p>
 
     <p>
+      <strong>Arquivo:</strong>
+      <% if @fotocopium.link != nil %>
+        <a href="<%= @fotocopium.link %>">Arquivo</a> 
+      <% else %>
+        <p>Sem arquivo</p>
+      <% end %>
+    </p>
+
+    <p>
       <strong>Justificativa:</strong>
       <%= @fotocopium.justificativa %>
     </p>

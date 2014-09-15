@@ -1,0 +1,325 @@
+  [1m[36m (8.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (5.4ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsuarios (20140629194428)
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36m (10.3ms)[0m  [1mCREATE TABLE "usuarios" ("id" serial primary key, "nome" character varying(255), "matricula" integer, "diretoria" character varying(255), "senha" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140629194428"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateFotocopia (20140629201502)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (5.6ms)[0m  [1mCREATE TABLE "fotocopia" ("id" serial primary key, "titulo" character varying(255), "originais" integer, "quantidade" integer, "data" date, "justificativa" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140629201502"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddIdsuarioToUsuario (20140712144840)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (1.6ms)[0m  [1mALTER TABLE "usuarios" ADD COLUMN "id_usuario" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140712144840"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddIdsuarioToFotocopium (20140712144903)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "fotocopia" ADD COLUMN "id_usuario" integer[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140712144903"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddMatriculaToFotocopium (20140712150415)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "fotocopia" ADD COLUMN "matricula" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140712150415"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddTipoToUsuarios (20140728001810)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "usuarios" ADD COLUMN "tipo" character varying(255)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140728001810"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddCheckToFotocopia (20140825172536)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "fotocopia" ADD COLUMN "check" integer[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140825172536"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAdmins (20140908013234)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "admins" ("id" serial primary key, "senha" integer, "limiteCopias" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140908013234"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddQtdCopiasToUsuario (20140908025902)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "usuarios" ADD COLUMN "qtdCopias" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140908025902"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUsuario Exists (1.9ms)[0m  [1mSELECT  1 AS one FROM "usuarios"  WHERE "usuarios"."matricula" = 12345 LIMIT 1[0m
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "usuarios" ("created_at", "diretoria", "matricula", "nome", "qtdCopias", "senha", "tipo", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2014-09-13 23:45:31.151386"], ["diretoria", ""], ["matricula", 12345], ["nome", "Gráfica"], ["qtdCopias", 0], ["senha", 1234], ["tipo", "grafica"], ["updated_at", "2014-09-13 23:45:31.151386"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUsuario Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "usuarios"  WHERE "usuarios"."matricula" = 2013101 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "usuarios" ("created_at", "diretoria", "matricula", "nome", "qtdCopias", "senha", "tipo", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2014-09-13 23:45:31.160724"], ["diretoria", "DIATINF"], ["matricula", 2013101], ["nome", "Francisco dos Santos"], ["qtdCopias", 0], ["senha", 1234], ["tipo", "diretor"], ["updated_at", "2014-09-13 23:45:31.160724"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUsuario Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "usuarios"  WHERE "usuarios"."matricula" = 2013202 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "usuarios" ("created_at", "diretoria", "matricula", "nome", "qtdCopias", "senha", "tipo", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2014-09-13 23:45:31.164363"], ["diretoria", "DIACON"], ["matricula", 2013202], ["nome", "Antonio Carlos"], ["qtdCopias", 0], ["senha", 1234], ["tipo", "diretor"], ["updated_at", "2014-09-13 23:45:31.164363"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUsuario Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "usuarios"  WHERE "usuarios"."matricula" = 2013111 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "usuarios" ("created_at", "diretoria", "matricula", "nome", "qtdCopias", "senha", "tipo", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2014-09-13 23:45:31.167967"], ["diretoria", "DIATINF"], ["matricula", 2013111], ["nome", "Robinson Alves"], ["qtdCopias", 0], ["senha", 1234], ["tipo", "professor"], ["updated_at", "2014-09-13 23:45:31.167967"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUsuario Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "usuarios"  WHERE "usuarios"."matricula" = 2013112 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "usuarios" ("created_at", "diretoria", "matricula", "nome", "qtdCopias", "senha", "tipo", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2014-09-13 23:45:31.170943"], ["diretoria", "DIATINF"], ["matricula", 2013112], ["nome", "Placido Neto"], ["qtdCopias", 0], ["senha", 1234], ["tipo", "professor"], ["updated_at", "2014-09-13 23:45:31.170943"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUsuario Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "usuarios"  WHERE "usuarios"."matricula" = 2013221 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "usuarios" ("created_at", "diretoria", "matricula", "nome", "qtdCopias", "senha", "tipo", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2014-09-13 23:45:31.174190"], ["diretoria", "DIACON"], ["matricula", 2013221], ["nome", "Gilda Menezes"], ["qtdCopias", 0], ["senha", 1234], ["tipo", "professor"], ["updated_at", "2014-09-13 23:45:31.174190"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUsuario Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "usuarios"  WHERE "usuarios"."matricula" = 2013222 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "usuarios" ("created_at", "diretoria", "matricula", "nome", "qtdCopias", "senha", "tipo", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2014-09-13 23:45:31.176978"], ["diretoria", "DIACON"], ["matricula", 2013222], ["nome", "Flavio Oliveira"], ["qtdCopias", 0], ["senha", 1234], ["tipo", "professor"], ["updated_at", "2014-09-13 23:45:31.176978"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "fotocopia" ("check", "created_at", "data", "justificativa", "matricula", "originais", "quantidade", "titulo", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["check", 0], ["created_at", "2014-09-13 23:45:31.195078"], ["data", "2014-09-07"], ["justificativa", "Material de estudo"], ["matricula", 2013101], ["originais", 20], ["quantidade", 10], ["titulo", "Paradigmas de Programação"], ["updated_at", "2014-09-13 23:45:31.195078"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "fotocopia" ("check", "created_at", "data", "justificativa", "matricula", "originais", "quantidade", "titulo", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["check", 0], ["created_at", "2014-09-13 23:45:31.201878"], ["data", "2014-09-07"], ["justificativa", "Material de estudo"], ["matricula", 2013202], ["originais", 20], ["quantidade", 10], ["titulo", "Concreto Armado"], ["updated_at", "2014-09-13 23:45:31.201878"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "fotocopia" ("check", "created_at", "data", "justificativa", "matricula", "originais", "quantidade", "titulo", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["check", 0], ["created_at", "2014-09-13 23:45:31.204474"], ["data", "2014-09-07"], ["justificativa", "Material de estudo"], ["matricula", 2013111], ["originais", 20], ["quantidade", 10], ["titulo", "Estruturas de Dados"], ["updated_at", "2014-09-13 23:45:31.204474"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "fotocopia" ("check", "created_at", "data", "justificativa", "matricula", "originais", "quantidade", "titulo", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["check", 0], ["created_at", "2014-09-13 23:45:31.206853"], ["data", "2014-09-07"], ["justificativa", "Material de estudo"], ["matricula", 2013112], ["originais", 20], ["quantidade", 10], ["titulo", "Diagramas UML"], ["updated_at", "2014-09-13 23:45:31.206853"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "fotocopia" ("check", "created_at", "data", "justificativa", "matricula", "originais", "quantidade", "titulo", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["check", 0], ["created_at", "2014-09-13 23:45:31.209069"], ["data", "2014-09-07"], ["justificativa", "Material de estudo"], ["matricula", 2013221], ["originais", 20], ["quantidade", 10], ["titulo", "AutoCAD básico"], ["updated_at", "2014-09-13 23:45:31.209069"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "fotocopia" ("check", "created_at", "data", "justificativa", "matricula", "originais", "quantidade", "titulo", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["check", 0], ["created_at", "2014-09-13 23:45:31.211167"], ["data", "2014-09-07"], ["justificativa", "Material de estudo"], ["matricula", 2013222], ["originais", 20], ["quantidade", 10], ["titulo", "Estruturas Metalicas"], ["updated_at", "2014-09-13 23:45:31.211167"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mAdmin Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."senha" = 909090 LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "admins" ("created_at", "limiteCopias", "senha", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-09-13 23:45:31.222511"], ["limiteCopias", 400], ["senha", 909090], ["updated_at", "2014-09-13 23:45:31.222511"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-13 20:48:53 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 1904ms (Views: 1891.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/fotocopia.css?body=1" for 127.0.0.1 at 2014-09-13 20:48:56 -0300
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-09-13 20:48:56 -0300
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-09-13 20:48:56 -0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-09-13 20:48:56 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-13 20:48:56 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-13 20:48:56 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-13 20:48:56 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-13 20:48:56 -0300
+
+
+Started GET "/assets/usuarios.css?body=1" for 127.0.0.1 at 2014-09-13 20:48:56 -0300
+
+
+Started GET "/assets/servico.css?body=1" for 127.0.0.1 at 2014-09-13 20:48:56 -0300
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-09-13 20:48:56 -0300
+
+
+Started GET "/assets/fotocopia.js?body=1" for 127.0.0.1 at 2014-09-13 20:48:56 -0300
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-09-13 20:48:56 -0300
+
+
+Started GET "/assets/servico.js?body=1" for 127.0.0.1 at 2014-09-13 20:48:56 -0300
+
+
+Started GET "/assets/usuarios.js?body=1" for 127.0.0.1 at 2014-09-13 20:48:56 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-13 20:48:56 -0300
+
+
+Started GET "/assets/logo_cif.jpg" for 127.0.0.1 at 2014-09-13 20:48:56 -0300
+
+
+Started POST "/autenticar" for 127.0.0.1 at 2014-09-13 20:49:03 -0300
+Processing by LoginController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BvWnNW0mSHLWuhL+aExXvImjCT5MNthNvE0TtOKFSFk=", "matricula"=>"12345", "senha"=>"1234", "commit"=>"Login"}
+  [1m[35mUsuario Load (3.7ms)[0m  SELECT  "usuarios".* FROM "usuarios"  WHERE "usuarios"."matricula" = 12345 AND "usuarios"."senha" = '1234' LIMIT 1
+Redirected to http://localhost:3000/servico/index?notice=Usuario+autenticado.
+Completed 302 Found in 24ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/servico/index?notice=Usuario+autenticado." for 127.0.0.1 at 2014-09-13 20:49:03 -0300
+Processing by ServicoController#index as HTML
+  Parameters: {"notice"=>"Usuario autenticado."}
+  [1m[36mUsuario Load (0.4ms)[0m  [1mSELECT  "usuarios".* FROM "usuarios"  WHERE "usuarios"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered servico/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 25ms (Views: 20.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/fotocopia?id=1" for 127.0.0.1 at 2014-09-13 20:49:05 -0300
+Processing by FotocopiaController#index as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT  "usuarios".* FROM "usuarios"  WHERE "usuarios"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mFotocopium Load (0.5ms)[0m  [1mSELECT "fotocopia".* FROM "fotocopia"  WHERE "fotocopia"."check" = 0[0m
+  Rendered fotocopia/index.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 35ms (Views: 22.7ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/servico/index" for 127.0.0.1 at 2014-09-13 20:49:07 -0300
+Processing by ServicoController#index as HTML
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT  "usuarios".* FROM "usuarios"  WHERE "usuarios"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered servico/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/fotocopia?id=2" for 127.0.0.1 at 2014-09-13 20:49:09 -0300
+Processing by FotocopiaController#index as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT  "usuarios".* FROM "usuarios"  WHERE "usuarios"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mFotocopium Load (0.4ms)[0m  SELECT "fotocopia".* FROM "fotocopia"  WHERE "fotocopia"."check" = 1
+  Rendered fotocopia/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 14ms (Views: 10.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/servico/index" for 127.0.0.1 at 2014-09-13 20:49:10 -0300
+Processing by ServicoController#index as HTML
+  [1m[36mUsuario Load (0.7ms)[0m  [1mSELECT  "usuarios".* FROM "usuarios"  WHERE "usuarios"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered servico/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 12ms (Views: 8.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/sair" for 127.0.0.1 at 2014-09-13 20:49:12 -0300
+Processing by LoginController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-13 20:49:12 -0300
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/autenticar" for 127.0.0.1 at 2014-09-13 20:49:17 -0300
+Processing by LoginController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BvWnNW0mSHLWuhL+aExXvImjCT5MNthNvE0TtOKFSFk=", "matricula"=>"2013111", "senha"=>"1234", "commit"=>"Login"}
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT  "usuarios".* FROM "usuarios"  WHERE "usuarios"."matricula" = 2013111 AND "usuarios"."senha" = '1234' LIMIT 1
+Redirected to http://localhost:3000/servico/index?notice=Usuario+autenticado.
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/servico/index?notice=Usuario+autenticado." for 127.0.0.1 at 2014-09-13 20:49:17 -0300
+Processing by ServicoController#index as HTML
+  Parameters: {"notice"=>"Usuario autenticado."}
+  [1m[36mUsuario Load (0.4ms)[0m  [1mSELECT  "usuarios".* FROM "usuarios"  WHERE "usuarios"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered servico/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/fotocopia?id=2" for 127.0.0.1 at 2014-09-13 20:49:25 -0300
+Processing by FotocopiaController#index as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT  "usuarios".* FROM "usuarios"  WHERE "usuarios"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mFotocopium Load (0.6ms)[0m  [1mSELECT "fotocopia".* FROM "fotocopia"  WHERE "fotocopia"."matricula" = 2013111 AND "fotocopia"."check" = 1[0m
+  Rendered fotocopia/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 14ms (Views: 11.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/servico/index" for 127.0.0.1 at 2014-09-13 20:49:27 -0300
+Processing by ServicoController#index as HTML
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT  "usuarios".* FROM "usuarios"  WHERE "usuarios"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered servico/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 18ms (Views: 14.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/fotocopia?id=1" for 127.0.0.1 at 2014-09-13 20:49:28 -0300
+Processing by FotocopiaController#index as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.4ms)[0m  [1mSELECT  "usuarios".* FROM "usuarios"  WHERE "usuarios"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mFotocopium Load (0.5ms)[0m  SELECT "fotocopia".* FROM "fotocopia"  WHERE "fotocopia"."matricula" = 2013111 AND "fotocopia"."check" = 0
+  Rendered fotocopia/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 16ms (Views: 11.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/servico/index" for 127.0.0.1 at 2014-09-13 20:49:29 -0300
+Processing by ServicoController#index as HTML
+  [1m[36mUsuario Load (0.4ms)[0m  [1mSELECT  "usuarios".* FROM "usuarios"  WHERE "usuarios"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered servico/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 15ms (Views: 12.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/sair" for 127.0.0.1 at 2014-09-13 20:49:30 -0300
+Processing by LoginController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-13 20:49:30 -0300
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mUsuario Exists (1.2ms)[0m  [1mSELECT  1 AS one FROM "usuarios"  WHERE "usuarios"."matricula" = 12345 LIMIT 1[0m
+  [1m[35m (0.8ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUsuario Exists (0.4ms)[0m  SELECT  1 AS one FROM "usuarios"  WHERE "usuarios"."matricula" = 2013101 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUsuario Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "usuarios"  WHERE "usuarios"."matricula" = 2013202 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUsuario Exists (0.2ms)[0m  SELECT  1 AS one FROM "usuarios"  WHERE "usuarios"."matricula" = 2013111 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUsuario Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "usuarios"  WHERE "usuarios"."matricula" = 2013112 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUsuario Exists (0.3ms)[0m  SELECT  1 AS one FROM "usuarios"  WHERE "usuarios"."matricula" = 2013221 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUsuario Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "usuarios"  WHERE "usuarios"."matricula" = 2013222 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (5.5ms)[0m  INSERT INTO "fotocopia" ("check", "created_at", "data", "justificativa", "matricula", "originais", "quantidade", "titulo", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["check", 0], ["created_at", "2014-09-14 01:24:01.427857"], ["data", "2014-09-07"], ["justificativa", "Material de estudo"], ["matricula", 2013101], ["originais", 20], ["quantidade", 10], ["titulo", "Paradigmas de Programação"], ["updated_at", "2014-09-14 01:24:01.427857"]]
+  [1m[36m (3.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "fotocopia" ("check", "created_at", "data", "justificativa", "matricula", "originais", "quantidade", "titulo", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["check", 0], ["created_at", "2014-09-14 01:24:01.441096"], ["data", "2014-09-07"], ["justificativa", "Material de estudo"], ["matricula", 2013202], ["originais", 20], ["quantidade", 10], ["titulo", "Concreto Armado"], ["updated_at", "2014-09-14 01:24:01.441096"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "fotocopia" ("check", "created_at", "data", "justificativa", "matricula", "originais", "quantidade", "titulo", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["check", 0], ["created_at", "2014-09-14 01:24:01.444449"], ["data", "2014-09-07"], ["justificativa", "Material de estudo"], ["matricula", 2013111], ["originais", 20], ["quantidade", 10], ["titulo", "Estruturas de Dados"], ["updated_at", "2014-09-14 01:24:01.444449"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "fotocopia" ("check", "created_at", "data", "justificativa", "matricula", "originais", "quantidade", "titulo", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["check", 0], ["created_at", "2014-09-14 01:24:01.447429"], ["data", "2014-09-07"], ["justificativa", "Material de estudo"], ["matricula", 2013112], ["originais", 20], ["quantidade", 10], ["titulo", "Diagramas UML"], ["updated_at", "2014-09-14 01:24:01.447429"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "fotocopia" ("check", "created_at", "data", "justificativa", "matricula", "originais", "quantidade", "titulo", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["check", 0], ["created_at", "2014-09-14 01:24:01.449786"], ["data", "2014-09-07"], ["justificativa", "Material de estudo"], ["matricula", 2013221], ["originais", 20], ["quantidade", 10], ["titulo", "AutoCAD básico"], ["updated_at", "2014-09-14 01:24:01.449786"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "fotocopia" ("check", "created_at", "data", "justificativa", "matricula", "originais", "quantidade", "titulo", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["check", 0], ["created_at", "2014-09-14 01:24:01.452112"], ["data", "2014-09-07"], ["justificativa", "Material de estudo"], ["matricula", 2013222], ["originais", 20], ["quantidade", 10], ["titulo", "Estruturas Metalicas"], ["updated_at", "2014-09-14 01:24:01.452112"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAdmin Exists (0.6ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."senha" = 909090 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m

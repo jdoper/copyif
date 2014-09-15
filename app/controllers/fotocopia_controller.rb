@@ -160,6 +160,6 @@ class FotocopiaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fotocopium_params
-      params.require(:fotocopium).permit(:titulo, :originais, :quantidade, :data, :justificativa, :matricula, :check, :id)
+      params.require(:fotocopium).permit(:titulo, :originais, :quantidade, :data, :justificativa, :matricula, :check, :id, :link)
     end
 end

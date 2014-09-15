@@ -19,6 +19,7 @@
       <th class="user_info">Quantidade</th>
       <th class="user_info">Data</th>
       <th class="user_info">Matricula</th>
+      <th class="user_info">Arquivo</th>
       <th class="user_info">Pronto</th>
       <th colspan="3"></th>
     </tr>
@@ -36,6 +37,13 @@
           <td class="user_info"><%= fotocopium.quantidade %></td>
           <td class="user_info"><%= fotocopium.data %></td>
           <td class="user_info"><%= fotocopium.matricula %></td>
+          <td class="user_info">       
+            <% if fotocopium.link != nil %>
+              <a href="<%= fotocopium.link %>">Arquivo</a>
+            <% else %>
+              <%= fotocopium.link %>
+            <% end %>
+          </td>
           
           <% if fotocopium.check == 0 %>
             <td class="user_info pronto">Não</td>
