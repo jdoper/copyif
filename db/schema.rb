@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908025902) do
+ActiveRecord::Schema.define(version: 20140914004245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20140908025902) do
     t.integer  "id_usuario"
     t.string   "tipo"
     t.integer  "qtdCopias"
+    t.integer  "limite"
   end
 
 end

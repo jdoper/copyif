@@ -14,9 +14,15 @@ Rails.application.routes.draw do
 
   get 'usuarios/listaUsuarios'
 
+  get 'usuarios/editarLimite'
+
   get 'fotocopia/concluir'  
 
-  get 'fotocopia/uncheck'
+  get 'fotocopia/desmarcar'
+
+  get 'fotocopia/historico'
+
+  get 'fotocopia/historicoGeral'
 
   post '/autenticar', to: 'login#create'
   
@@ -24,9 +30,7 @@ Rails.application.routes.draw do
 
   post '/autorizar', to: 'admins#login'
 
-  get 'fotocopia/historico'
-
-  get 'fotocopia/historicoGeral'
+  post '/atualizar', to: 'usuarios#atualizarLimite'
 
   resources :fotocopia
 

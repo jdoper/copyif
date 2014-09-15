@@ -50,7 +50,7 @@
             <td class="buttom_actions"><%= link_to 'Concluir', controller:"fotocopia", action:"concluir", id:fotocopium, remote: true %>
           <% elsif $a.tipo == "grafica" and $id == "2" %>
             <td class="buttom_actions"><%= link_to 'Mostrar', fotocopium %></td>
-            <td class="buttom_actions"><%= link_to 'Desmarcar', controller:"fotocopia", action:"uncheck", id:fotocopium, remote: true %>
+            <td class="buttom_actions"><%= link_to 'Desmarcar', controller:"fotocopia", action:"desmarcar", id:fotocopium, remote: true %>
           <% else %>
             <td class="buttom_actions"><%= link_to 'Mostrar', fotocopium %></td>
             <td class="buttom_actions"><%= link_to 'Editar', edit_fotocopium_path(fotocopium) %></td>

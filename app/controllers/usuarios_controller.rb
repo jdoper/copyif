@@ -1,5 +1,5 @@
 class UsuariosController < ApplicationController
-  before_action :verify_login, only: [:show, :edit, :update, :destroy, :listaUsuarios]
+  before_action :verify_login, only: [:show, :edit, :update, :destroy, :listaUsuarios, :editarLimite, :atualizarLimite]
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
 
   # GET /usuarios
@@ -26,6 +26,32 @@ class UsuariosController < ApplicationController
     end
   end
   
+  def editarLimite
+    $a = Usuario.find(session[:user_id])
+    
+    if $a.tipo != "diretor" 
+      redirect_to controller:"servico", action:"index"
+      flash[:alert] = "Acesso Negado"
+    end
+  end
+
+  def atualizarLimite
+    $a = Usuario.find(session[:user_id])
+
+    if params[:limite] == '0' || params[:limite] == nil 
+      redirect_to controller:"servico", action:"index"
+      flash[:alert] = "Limite invalido"
+    else
+      usuario = Usuario.where("diretoria = '#{$a.diretoria}' and tipo = 'professor'")
+      usuario.each do |user|
+        user.limite = params[:limite]
+        user.save
+      end
+      redirect_to controller:"servico", action:"index"
+      flash[:notice] = "Limite alterado"
+    end
+  end
+
   def log
 
   end

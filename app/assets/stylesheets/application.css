@@ -23,6 +23,7 @@ body{
 #corpo{
 	width: 1100px;
 	box-shadow: -2px 0px 30px gray, 3px 0px 30px gray;
+	height: 100%;
 }
 #banner {
 	background: white;

@@ -1,0 +1,19 @@
+<center>
+  <h1>Editar limite de copias</h1></br>
+
+  <%= form_tag atualizar_path do %>
+    <div class="field">
+      <%= label_tag 'limite', 'Limite' %><br>
+      <%= number_field_tag 'limite' %>
+    </div>
+    <div class="actions">
+      <%= submit_tag 'Alterar' %>
+    </div>
+  <% end %>
+
+  <table class="buttom_opt">
+    <tr>
+      <td class="user_opt"><%= link_to 'Voltar', controller:"servico", action:"index" %></td>
+    </tr>
+  </table>
+</center>

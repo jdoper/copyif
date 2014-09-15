@@ -1,5 +1,6 @@
 class FotocopiaController < ApplicationController
-  before_action :verify_login, :set_fotocopium, only: [:show, :edit, :update, :destroy]
+  before_action :set_fotocopium, only: [:show, :edit, :update, :destroy]
+  before_action :verify_login, only: [:show, :edit, :update, :destroy, :historico, :historicoGeral]
 
   # GET /fotocopia
   # GET /fotocopia.json
@@ -7,13 +8,6 @@ class FotocopiaController < ApplicationController
     $a = Usuario.find(session[:user_id])
     $id = params[:id]
 
-    # if $a.tipo == "grafica" and params[:id] == "1"
-    #   @fotocopium = Fotocopium.where('check' => '0')
-    # elsif $a.tipo == "grafica" and params[:id] == "2"
-    #   @fotocopium = Fotocopium.where('check' => '1')
-    # else
-    #   @fotocopium = Fotocopium.where("matricula = #{$a.matricula}")
-    # end
     $d = $a.matricula
     case $a.tipo
       when "grafica"
@@ -39,19 +33,18 @@ class FotocopiaController < ApplicationController
   end
   
   def historico
-    
      @fotocopium = Fotocopium.where({matricula: $m, check: '1'})
+  end
+
+  def historicoGeral
+    @u = Usuario.where(diretoria: $a.diretoria).pluck(:matricula)
+    @a = $a.diretoria
+    @fotocopium =  Fotocopium.where(matricula: @u) 
+  end
+
   # GET /fotocopia/1
   # GET /fotocopia/1.json
- end
-
- def historicoGeral
-   @u = Usuario.where(diretoria: $a.diretoria).pluck(:matricula)
-   @a = $a.diretoria
-   @fotocopium =  Fotocopium.where(matricula: @u)
-    # @fotocopium = Fotocopium.find_by_sql("select * from fotocopia f
-    #  where f.matricula IN ? ", @u) 
-end
+ 
 
   def show
   
@@ -150,7 +143,7 @@ end
     end
   end
 
-  def uncheck
+  def desmarcar
     @fotocopium = Fotocopium.find(params[:id])
     @fotocopium.check = 0
     
